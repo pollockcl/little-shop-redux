@@ -1,3 +1,6 @@
+require 'csv'
+require './app/models/merchant'
+
 OPTIONS = { headers: true, header_converters: :symbol }
 
 # Populate Merchants table
