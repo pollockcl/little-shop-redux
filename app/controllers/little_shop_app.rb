@@ -10,6 +10,12 @@ class LittleShopApp < Sinatra::Base
     erb :'merchant/edit', locals: { merchant: merchant }
   end
 
+  get '/merchants/:id' do
+    merchant = Merchant.find(params['id'])
+
+    erb :'merchant/singular', locals: { merchant: merchant }
+  end
+
   patch '/merchants/edit/:id' do
     merchant      = Merchant.find(params['id'])
     merchant.name = params['new_name']
