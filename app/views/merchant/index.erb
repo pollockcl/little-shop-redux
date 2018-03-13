@@ -15,7 +15,7 @@
 
       <tr>
         <td> <%= merchant.id %> </td>
-        <td> <%= merchant.name %></td>
+        <td> <a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a></td>
         <td> <%= merchant.created_at %></td>
         <td> <%= merchant.updated_at %></td>
         <td>
