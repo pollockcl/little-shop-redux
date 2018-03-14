@@ -28,5 +28,23 @@ RSpec.describe do
         expect(page).to have_content('created')
       end
     end
+
+    describe 'merchant/edit' do
+      it 'can edit merchant' do
+        visit 'merchants/create'
+        fill_in 'name', with: 'Darth Plagueis the Wise'
+        click_button('Create')
+
+        visit 'merchants/edit/1'
+
+        expect(page).to have_content(1)
+
+        fill_in 'new_name', with: 'Anakin Skywalker'
+        click_button('Submit')
+
+        expect(current_path).to eq('/merchants')
+        expect(page).to have_content('Anakin Skywalker')
+      end
+    end
   end
 end
