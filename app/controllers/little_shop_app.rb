@@ -1,3 +1,4 @@
+
 class LittleShopApp < Sinatra::Base
   get '/merchants' do
     merchants = Merchant.all
@@ -68,8 +69,11 @@ class LittleShopApp < Sinatra::Base
   end
 
   patch '/invoices/edit/:id' do
-    invoice        = Invoice.find(params['id'])
-    invoice.status = params['new_status']
+    throw params
+    invoice             = Invoice.find(params['id'])
+    invoice.customer_id = params['new_customer_id']
+    invoice.merchant_id = params['new_merchant_id']
+    invoice.status      = params['new_status']
     invoice.save
 
     redirect :'/invoices'
