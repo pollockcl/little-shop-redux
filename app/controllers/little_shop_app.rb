@@ -45,4 +45,40 @@ class LittleShopApp < Sinatra::Base
     erb :'invoice/index', locals: { invoices: invoices }
   end
 
+  get '/invoices/edit/:id' do
+    invoice = Invoice.find(params['id'])
+
+    erb :'invoice/edit', locals: { invoice: invoice }
+  end
+
+  get '/invoices/view/:id' do
+    invoice = Invoice.find(params['id'])
+
+    erb :'invoice/singular', locals: { invoice: invoice }
+  end
+
+  get '/invoices/create' do
+    erb :'invoice/create'
+  end
+
+  post '/invoices/create' do
+    Invoice.create(params)
+
+    redirect :'/invoices'
+  end
+
+  patch '/invoices/edit/:id' do
+    invoice      = Invoice.find(params['id'])
+    invoice.name = params['new_name']
+    invoice.save
+
+    redirect :'/invoices'
+  end
+
+  delete '/invoices/delete/:id' do
+    Invoice.delete(params['id'])
+
+    redirect :'/invoices'
+  end
+
 end
