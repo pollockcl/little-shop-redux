@@ -69,7 +69,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   patch '/items/edit/:id' do
-    item      = Item.find(params['id'])
+    item       = Item.find(params['id'])
     item.title = params['new_title']
     item.save
 
