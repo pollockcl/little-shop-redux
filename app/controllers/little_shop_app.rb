@@ -68,8 +68,8 @@ class LittleShopApp < Sinatra::Base
   end
 
   patch '/invoices/edit/:id' do
-    invoice      = Invoice.find(params['id'])
-    invoice.name = params['new_name']
+    invoice        = Invoice.find(params['id'])
+    invoice.status = params['new_status']
     invoice.save
 
     redirect :'/invoices'

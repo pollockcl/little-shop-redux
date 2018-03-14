@@ -19,24 +19,24 @@
 
       <% invoices.each do |invoice| %>
 
-      <tr>
-        <td> <%= invoice.id %> </td>
-        <td> <a href="/invoice/view/<%= invoice.id %>"><%= invoice.id %></a></td>
-        <td> <%= invoice.created_at %></td>
-        <td> <%= invoice.updated_at %></td>
-        <td>
-          <form action="/invoices/edit/<%= invoice.id %>" method="GET">
-            <input type="submit" value="Edit"/>
-          </form>
+        <tr>
+          <td> <%= invoice.id %> </td>
+          <td> <a href="/invoice/view/<%= invoice.id %>"><%= invoice.id %></a></td>
+          <td> <%= invoice.created_at %></td>
+          <td> <%= invoice.updated_at %></td>
+          <td>
+            <form action="/invoices/edit/<%= invoice.id %>" method="GET">
+              <input type="submit" value="Edit"/>
+            </form>
 
-          <form action="/invoices/delete/<%= invoice.id %>" method="POST">
-            <input type="hidden" name="_method" value="DELETE"/>
-            <input type="submit" value="Delete"/>
-          </form>
-        </td>
-      </tr>
+            <form action="/invoices/delete/<%= invoice.id %>" method="POST">
+              <input type="hidden" name="_method" value="DELETE"/>
+              <input type="submit" value="Delete"/>
+            </form>
+          </td>
+        </tr>
 
-        <% end %>
+      <% end %>
 
     </table>
   </body>
