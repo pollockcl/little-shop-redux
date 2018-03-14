@@ -1,5 +1,6 @@
 require 'csv'
 require './app/models/merchant'
+require './app/models/item'
 
 OPTIONS = { headers: true, header_converters: :symbol }
 
