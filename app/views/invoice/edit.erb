@@ -21,14 +21,13 @@
           <%= invoice.id %>
         </td>
         <td>
-            <input type="text" customer_id="new_customer_id" value="<%= invoice.customer_id %>"/>
+            <input type="text" name="new_customer_id" value="<%= invoice.customer_id %>"/>
         </td>
         <td>
-            <input type="text" merchant_id="new_merchant_id" value="<%= invoice.merchant_id %>"/>
+            <input type="text" name="new_merchant_id" value="<%= invoice.merchant_id %>"/>
         </td>
         <td>
-            <input type="text" status="new_status" value="<%= invoice.status %>"/>
-
+            <input type="text" name="new_status" value="<%= invoice.status %>"/>
         </td>
         <td> <%= invoice.created_at %> </td>
         <td> <%= invoice.updated_at %> </td>

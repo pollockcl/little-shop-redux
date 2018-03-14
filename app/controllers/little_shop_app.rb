@@ -69,7 +69,6 @@ class LittleShopApp < Sinatra::Base
   end
 
   patch '/invoices/edit/:id' do
-    throw params
     invoice             = Invoice.find(params['id'])
     invoice.customer_id = params['new_customer_id']
     invoice.merchant_id = params['new_merchant_id']
