@@ -1,6 +1,6 @@
 class CreateItemTable < ActiveRecord::Migration[5.1]
   def change
-    create_table :merchants do |t|
+    create_table :items do |t|
       t.text :title
       t.text :description
       t.integer :unit_price
