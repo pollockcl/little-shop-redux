@@ -1,4 +1,4 @@
-RSpec.describe do
+RSpec.describe Invoice do
   describe 'When visiting' do
     describe 'create' do
       it 'can create invoice' do
