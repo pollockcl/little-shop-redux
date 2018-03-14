@@ -5,7 +5,7 @@ RSpec.describe Invoice do
       it 'should be present' do
         invoice = Invoice.create()
 
-        expect(merchant).to_not be_valid
+        expect(invoice).to_not be_valid
       end
     end
   end

@@ -2,7 +2,7 @@ RSpec.describe do
 +  describe 'When visiting' do
 +
 +    describe 'read' do
-+      it 'can view merchant' do
++      it 'can view invoice' do
 +        visit 'invoices/create'
 +        fill_in 'name', with: 'Darth Plagueis the Wise'
 +        click_button('Create')
@@ -17,7 +17,7 @@ RSpec.describe do
 +    end
 +
 +    describe 'update' do
-+      it 'should edit merchant' do
++      it 'should edit invoice' do
 +        visit 'invoices/create'
 +        fill_in 'name', with: 'Darth Plagueis the Wise'
 +        click_button('Create')
@@ -35,8 +35,8 @@ RSpec.describe do
 +    end
 +
 +    describe 'delete' do
-+      it 'should delete a merchant' do
-+        Merchant.create(name: 'Darth Plagueis the Wise')
++      it 'should delete a invoice' do
++        invoice.create(name: 'Darth Plagueis the Wise')
 +        visit '/invoices'
 +
 +        expect(current_path).to eq('/invoices')

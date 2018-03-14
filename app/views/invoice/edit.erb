@@ -1,0 +1,32 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Invoices</h1>
+    <table>
+      <tr>
+        <th>id</th>
+        <th>customer_id</th>
+        <th>merchant_id</th>
+        <th>status</th>
+        <th>created</th>
+        <th>updated</th>
+        <th>action</th>
+      </tr>
+
+      <tr>
+        <td>
+          <%= invoice.id %>
+        </td>
+        <td>
+          <form action="/invoice/edit/<%= invoice.id %>" method="POST">
+            <input type="hidden" name="_method" value="PATCH" />
+            <input type="text" name="new_name" value="<%= invoice.name %>"/>
+            <input type="submit" value="Submit"/>
+          </form>
+        </td>
+        <td> <%= invoice.created_at %> </td>
+        <td> <%= invoice.updated_at %> </td>
+      </tr>
+    </table>
+  </body>
+</html>
