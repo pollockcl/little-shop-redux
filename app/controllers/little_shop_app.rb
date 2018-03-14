@@ -39,4 +39,10 @@ class LittleShopApp < Sinatra::Base
 
     redirect :'/merchants'
   end
+
+  get '/invoices' do
+    invoices = Invoice.all
+    erb :'invoice/index', locals: { invoices: invoices }
+  end
+
 end
