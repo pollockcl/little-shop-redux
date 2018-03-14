@@ -1,5 +1,18 @@
 RSpec.describe do
   describe 'When visiting' do
+    describe 'create' do
+      it 'can create invoice' do
+        visit '/invoices'
+        click_button 'Create New Invoice'
+
+        fill_in 'name', with: 'Darth Plagueis the Wise'
+        click_button 'Create'
+
+        expect(current_path).to eq('/invoices')
+        expect(page).to have_content('Darth Plagueis the Wise')
+        expect(Invoice.count).to eq(1)
+      end
+    end
 
     describe 'read' do
       it 'can view invoice' do
@@ -36,7 +49,7 @@ RSpec.describe do
 
     describe 'delete' do
       it 'should delete a invoice' do
-        invoice.create(name: 'Darth Plagueis the Wise')
+        Invoice.create(name: 'Darth Plagueis the Wise')
         visit '/invoices'
 
         expect(current_path).to eq('/invoices')
