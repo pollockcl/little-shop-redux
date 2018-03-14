@@ -1,0 +1,33 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Item</h1>
+    <table>
+      <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>description</th>
+        <th>unit_price</th>
+        <th>merchant_id</th>
+        <th>created</th>
+        <th>updated</th>
+        <th>action</th>
+      </tr>
+
+      <tr>
+        <td>
+          <%= item.id %>
+        </td>
+        <td>
+          <form action="/item/edit/<%= item.id %>" method="POST">
+            <input type="hidden" name="_method" value="PATCH" />
+            <input type="text" name="new_title" value="<%= item.title %>"/>
+            <input type="submit" value="Submit"/>
+          </form>
+        </td>
+        <td> <%= item.created_at %> </td>
+        <td> <%= item.updated_at %> </td>
+      </tr>
+    </table>
+  </body>
+</html>
