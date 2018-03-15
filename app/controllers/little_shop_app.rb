@@ -2,6 +2,7 @@
 class LittleShopApp < Sinatra::Base
   get '/merchants' do
     merchants = Merchant.all
+
     erb :'merchant/index', locals: { merchants: merchants }
   end
 
@@ -74,4 +75,44 @@ class LittleShopApp < Sinatra::Base
     redirect :'/invoices'
   end
 
+  get '/items' do
+    items = Item.all
+    erb :'item/index', locals: { items: items }
+  end
+
+  get '/items/edit/:id' do
+    item = Item.find(params['id'])
+
+    erb :'item/edit', locals: { item: item }
+  end
+
+  get '/items/view/:id' do
+    item = Item.find(params['id'])
+
+    erb :'item/singular', locals: { item: item }
+  end
+
+  get '/items/create' do
+    erb :'item/create'
+  end
+
+  post '/items/create' do
+    Item.create(params)
+
+    redirect :'/items'
+  end
+
+  patch '/items/edit/:id' do
+    item       = Item.find(params[:id])
+    item.title = params['new_title']
+    item.save
+
+    redirect :'/items'
+  end
+
+  delete '/items/delete/:id' do
+    Item.delete(params['id'])
+
+    redirect :'/items'
+  end
 end

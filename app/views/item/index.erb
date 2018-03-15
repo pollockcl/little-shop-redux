@@ -1,0 +1,46 @@
+<html>
+  <head></head>
+  <body>
+    <h1>item</h1>
+
+    <form action="/items/create" method="GET">
+      <input type="submit" value="Create New Item"/>
+    </form>
+
+    <table>
+      <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>description</th>
+        <th>unit_price</th>
+        <th>created</th>
+        <th>updated</th>
+        <th>action</th>
+      </tr>
+
+      <% items.each do |item| %>
+
+      <tr>
+        <td> <%= item.id %> </td>
+        <td> <a href="/items/view/<%= item.id %>"><%= item.title %></a></td>
+        <td> <%= item.description %> </td>
+        <td> <%= item.unit_price %> </td>
+        <td> <%= item.created_at %></td>
+        <td> <%= item.updated_at %></td>
+        <td>
+          <form action="/items/edit/<%= item.id %>" method="GET">
+            <input type="submit" value="Edit"/>
+          </form>
+
+          <form action="/items/delete/<%= item.id %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE"/>
+            <input type="submit" value="Delete"/>
+          </form>
+        </td>
+      </tr>
+
+        <% end %>
+
+    </table>
+  </body>
+</html>

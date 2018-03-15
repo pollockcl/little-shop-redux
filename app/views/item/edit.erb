@@ -1,0 +1,14 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Item</h1>
+    <form action="/items/edit/<%= item.id %>" method="POST">
+      <input type="hidden" name="_method" value="PATCH"
+      <p>Name: </p><input type="text" name="new_title" value="<%= item.title %>"/>
+      <p>Description: </p><input type="text" name="new_description" value="<%= item.description %>"/>
+      <p>Price: </p><input type="integer" name="new_price" value="<%= item.unit_price %>"/>
+      <p>Merchant: </p><input type="integer" name="new_merch_id" value="<%=  item.merchant_id %>"/>
+      <input type="submit" value="Submit"/>
+    </form>
+  </body>
+</html>
