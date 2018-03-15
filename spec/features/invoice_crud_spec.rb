@@ -31,9 +31,8 @@ RSpec.describe Invoice do
 
     describe 'update' do
       it 'should edit invoice' do
-        visit 'invoices/create'
-        fill_in 'name', with: 'Darth Plagueis the Wise'
-        click_button('Create')
+        Invoice.create(name: 'Darth Plagueis the Wise')
+        visit '/invoices'
 
         visit 'invoices/edit/1'
 
