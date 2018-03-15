@@ -58,16 +58,6 @@ class LittleShopApp < Sinatra::Base
     erb :'invoice/singular', locals: { invoice: invoice }
   end
 
-  get '/invoices/create' do
-    erb :'invoice/create'
-  end
-
-  post '/invoices/create' do
-    Invoice.create(params)
-
-    redirect :'/invoices'
-  end
-
   patch '/invoices/edit/:id' do
     invoice             = Invoice.find(params['id'])
     invoice.customer_id = params['new_customer_id']
