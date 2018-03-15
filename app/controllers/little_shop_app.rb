@@ -71,6 +71,9 @@ class LittleShopApp < Sinatra::Base
   patch '/items/edit/:id' do
     item       = Item.find(params[:id])
     item.title = params['new_title']
+    item.description = params['new_description']
+    item.unit_price = params['new_price']
+    item.merchant_id = params['new_merch_id']
     item.save
 
     redirect :'/items'
