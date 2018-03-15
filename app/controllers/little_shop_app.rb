@@ -89,11 +89,11 @@ class LittleShopApp < Sinatra::Base
   get '/items/view/:id' do
     item = Item.find(params['id'])
 
-    erb :'item/singular', locals: { item: item }
+    erb :'item/show', locals: { item: item }
   end
 
   get '/items/create' do
-    erb :'item/create'
+    erb :'item/new'
   end
 
   post '/items/create' do
