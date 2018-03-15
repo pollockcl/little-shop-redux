@@ -13,7 +13,6 @@
         <th>title</th>
         <th>description</th>
         <th>unit_price</th>
-        <th>item_id</th>
         <th>created</th>
         <th>updated</th>
         <th>action</th>
@@ -24,6 +23,8 @@
       <tr>
         <td> <%= item.id %> </td>
         <td> <a href="/items/view/<%= item.id %>"><%= item.title %></a></td>
+        <td> <%= item.description %> </td>
+        <td> <%= item.unit_price %> </td>
         <td> <%= item.created_at %></td>
         <td> <%= item.updated_at %></td>
         <td>
