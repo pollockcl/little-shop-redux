@@ -2,13 +2,31 @@
   <head></head>
   <body>
     <h1>Item</h1>
-    <form action="/items/edit/<%= item.id %>" method="POST">
-      <input type="hidden" name="_method" value="PATCH"
-      <p>Name: </p><input type="text" name="new_title" value="<%= item.title %>"/>
-      <p>Description: </p><input type="text" name="new_description" value="<%= item.description %>"/>
-      <p>Price: </p><input type="integer" name="new_price" value="<%= item.unit_price %>"/>
-      <p>Merchant: </p><input type="integer" name="new_merch_id" value="<%=  item.merchant_id %>"/>
-      <input type="submit" value="Submit"/>
-    </form>
+    <table>
+      <tr>
+        <th>title</th>
+        <th>description</th>
+        <th>price</th>
+        <th>created</th>
+        <th>updated</th>
+        <th>action</th>
+      </tr>
+
+      <tr>
+        <td>
+          <%= item.id %>
+        </td>
+        <td>
+          <form action="/items/edit/<%= item.id %>" method="POST">
+            <input type="hidden" name="_method" value="PATCH"/>
+            <input type="text" name="new_title" value="<%= item.title %>"/>
+            <input type="text" name="new_description" value="<%= item.description %>"/>
+            <input type="float" name="new_price" value="<%= item.price %>"/>
+            <input type="integer" name="new_merch_id" value="<%=  item.merchant_id %>"/>
+            <input type="submit" value="Submit"/>
+          </form>
+        </td>
+      </tr>
+    </table>
   </body>
 </html>

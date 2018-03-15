@@ -9,10 +9,9 @@
 
     <table>
       <tr>
-        <th>id</th>
         <th>title</th>
         <th>description</th>
-        <th>unit_price</th>
+        <th>price</th>
         <th>created</th>
         <th>updated</th>
         <th>action</th>
@@ -21,12 +20,11 @@
       <% items.each do |item| %>
 
       <tr>
-        <td> <%= item.id %> </td>
         <td> <a href="/items/view/<%= item.id %>"><%= item.title %></a></td>
         <td> <%= item.description %> </td>
-        <td> <%= item.unit_price %> </td>
-        <td> <%= item.created_at %></td>
-        <td> <%= item.updated_at %></td>
+        <td> <%= item.price %> </td>
+        <td> <%= item.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+        <td> <%= item.updated_at.strftime("%d/%m/%Y %H:%M") %></td>
         <td>
           <form action="/items/edit/<%= item.id %>" method="GET">
             <input type="submit" value="Edit"/>

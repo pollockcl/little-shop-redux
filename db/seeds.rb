@@ -21,7 +21,16 @@ end
 # Populate Items table
 
 CSV.foreach('./data/items.csv', OPTIONS) do |item|
-  Item.create(item.to_h)
+  Item.create(
+    id: item[:id],
+    title: item[:name],
+    description: item[:description],
+    price: item[:unit_price],
+    merchant_id: item[:merchant_id],
+    created_at: item[:created_at],
+    updated_at: item[:updated_at],
+    image_url: 'https://thumb1.shutterstock.com/display_pic_with_logo/586741/345824189/stock-vector-stamp-or-label-with-the-text-hot-item-buy-today-vector-illustration-345824189.jpg'
+  )
 end
 
 # Populate InvoiceItems table
