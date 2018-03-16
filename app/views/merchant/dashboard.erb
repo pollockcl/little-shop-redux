@@ -1,0 +1,31 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Merchants</h1>
+
+    <table class="dashboard_header">
+      <tr>
+        <th>Merchant with the most items</th>
+        <th>Merchant with the highest price item</th>
+      </tr>
+      <tr>
+        <td><a href="/merchants/view/<%= merchants.most_items %>"><%= merchants.most_items %></a></td>
+        <td><a href="/merchants/view/<%= merchants.high_price %>"><%= merchants.high_price %></a></td>
+      </tr>
+    </table>
+
+    <% merchants.each do |merchant| %>
+
+      <table class="merchant_dbd">
+        <tr><th><a href="/merchants/view/<%= merchant.id %>"><%= merchant.name %></a></th></tr>
+        <tr><th>Item Count:</th></tr>
+        <tr><td><%= merchant.item_count %></td></tr>
+        <tr><th>Avg Item Price:</th></tr>
+        <tr><td><%= merchant.avg_price %></td></tr>
+        <tr><th>Total Cost of Items:</th></tr>
+        <tr><td><%= merchant.total_cost %></td></tr>
+      </table>
+
+    <% end %>
+  </body>
+</html>
