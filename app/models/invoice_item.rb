@@ -14,7 +14,7 @@ class InvoiceItem < ActiveRecord::Base
 
     c = ii.zip(items).to_h
 
-    receipts = c.map{ |k, v| { quantity: k[:quantity], price: v[:price]  } }
+    receipts = c.map{ |k, v| { quantity: k[:quantity], price: v[:price] } }
     total = c.map{ |k,v| k[:quantity] * v[:price] }.sum
 
 

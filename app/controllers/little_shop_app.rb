@@ -18,11 +18,11 @@ class LittleShopApp < Sinatra::Base
     erb :'merchant/singular', locals: { merchant: merchant }
   end
 
-  get '/merchants/create' do
-    erb :'merchant/create'
+  get '/merchants/new' do
+    erb :'merchant/new'
   end
 
-  post '/merchants/create' do
+  post '/merchants/new' do
     Merchant.create(params)
 
     redirect :'/merchants'
