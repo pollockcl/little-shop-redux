@@ -1,24 +1,27 @@
 RSpec.describe do
   describe 'When visiting' do
+
+    before(:each) do
+      Merchant.create(name: 'Darth Plagueis the Wise')
+    end
+
     describe 'create' do
       it 'can create merchant' do
         visit '/merchants'
         click_button 'Create New Merchant'
 
-        fill_in 'name', with: 'Darth Plagueis the Wise'
+        fill_in 'name', with: 'Farquad'
         click_button 'Create'
 
         expect(current_path).to eq('/merchants')
-        expect(page).to have_content('Darth Plagueis the Wise')
-        expect(Merchant.count).to eq(1)
+        expect(page).to have_content('Farquad')
+        expect(Merchant.count).to eq(2)
       end
     end
 
     describe 'read' do
       it 'can view merchant' do
-        visit 'merchants/create'
-        fill_in 'name', with: 'Darth Plagueis the Wise'
-        click_button('Create')
+        visit '/merchants'
 
         click_link('Darth Plagueis the Wise')
 
@@ -31,11 +34,7 @@ RSpec.describe do
 
     describe 'update' do
       it 'should edit merchant' do
-        visit 'merchants/create'
-        fill_in 'name', with: 'Darth Plagueis the Wise'
-        click_button('Create')
-
-        visit 'merchants/edit/1'
+        visit '/merchants/edit/1'
 
         expect(page).to have_content(1)
 
@@ -49,7 +48,6 @@ RSpec.describe do
 
     describe 'delete' do
       it 'should delete a merchant' do
-        Merchant.create(name: 'Darth Plagueis the Wise')
         visit '/merchants'
 
         expect(current_path).to eq('/merchants')
