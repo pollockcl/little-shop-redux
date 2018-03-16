@@ -16,9 +16,8 @@ RSpec.describe do
 
     describe 'read' do
       it 'can view merchant' do
-        visit 'merchants/create'
-        fill_in 'name', with: 'Darth Plagueis the Wise'
-        click_button('Create')
+        merchant = Merchant.create(name: 'Darth Plagueis the Wise')
+        visit '/merchants'
 
         click_link('Darth Plagueis the Wise')
 
@@ -31,11 +30,9 @@ RSpec.describe do
 
     describe 'update' do
       it 'should edit merchant' do
-        visit 'merchants/create'
-        fill_in 'name', with: 'Darth Plagueis the Wise'
-        click_button('Create')
+        merchant = Merchant.create(name: 'Darth Plagueis the Wise')
 
-        visit 'merchants/edit/1'
+        visit '/merchants/edit/1'
 
         expect(page).to have_content(1)
 
