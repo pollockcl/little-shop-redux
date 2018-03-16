@@ -21,7 +21,7 @@
       <% items.each do |item| %>
 
       <tr>
-        <td> <a href="/items/view/<%= item.id %>"><%= item.title %></a></td>
+        <td> <a href="/items/<%= item.id %>/view"><%= item.title %></a></td>
         <td> <%= item.description %> </td>
         <td> <%= item.merchant_id %> </td>
         <td> <%= item.created_at %></td>
@@ -34,7 +34,7 @@
             <input type="submit" value="Edit"/>
           </form>
 
-          <form action="/items/delete/<%= item.id %>" method="POST">
+          <form action="/items/<%= item.id %>/delete" method="POST">
             <input type="hidden" name="_method" value="DELETE"/>
             <input type="submit" value="Delete"/>
           </form>

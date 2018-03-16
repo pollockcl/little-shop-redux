@@ -15,7 +15,7 @@
       </tr>
 
       <tr>
-        <form action="/invoices/edit/<%= invoice.id %>" method="POST">
+        <form action="/invoices/<%= invoice.id %>/edit" method="POST">
         <input type="hidden" name="_method" value="PATCH" />
         <td>
           <%= invoice.id %>

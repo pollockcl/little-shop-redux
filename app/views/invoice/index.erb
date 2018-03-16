@@ -16,7 +16,7 @@
       <% invoices.each do |invoice| %>
 
         <tr>
-          <td> <a href="/invoices/view/<%= invoice.id %>"><%= invoice.id %></a></td>
+          <td> <a href="/invoices/<%= invoice.id %>/view"><%= invoice.id %></a></td>
           <td> <%= invoice.customer_id %></td>
           <td> <%= invoice.merchant_id %></td>
           <td> <%= invoice.status %></td>
@@ -27,7 +27,7 @@
               <input type="submit" value="Edit"/>
             </form>
 
-            <form action="/invoices/delete/<%= invoice.id %>" method="POST">
+            <form action="/invoices/<%= invoice.id %>/delete" method="POST">
               <input type="hidden" name="_method" value="DELETE"/>
               <input type="submit" value="Delete"/>
             </form>

@@ -16,7 +16,7 @@
           <%= merchant.id %>
         </td>
         <td>
-          <form action="/merchants/edit/<%= merchant.id %>" method="POST">
+          <form action="/merchants/<%= merchant.id %>/edit" method="POST">
             <input type="hidden" name="_method" value="PATCH" />
             <input type="text" name="new_name" value="<%= merchant.name %>"/>
             <input type="submit" value="Submit"/>

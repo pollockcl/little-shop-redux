@@ -33,7 +33,7 @@ RSpec.describe do
         click_link ('Burrito del Greg')
 
 
-        expect(current_path).to eq('/items/view/1')
+        expect(current_path).to eq('/items/1/view')
         expect(page).to have_content(6)
         expect(page).to have_content('Burrito del Greg')
         expect(page).to have_content('created')
@@ -42,14 +42,14 @@ RSpec.describe do
 
     describe 'update' do
       it 'should edit item' do
-        visit '/items/edit/1'
+        visit '/items/1/edit'
 
         expect(page).to have_field('new_title', with: 'Burrito del Greg')
 
         fill_in 'new_title', with: 'Burrito del Gerg'
         click_button('Submit')
 
-        expect(current_path).to eq('/items/edit/1')
+        expect(current_path).to eq('/items/1/edit')
         expect(page).to have_content('Burrito del Gerg')
       end
     end
