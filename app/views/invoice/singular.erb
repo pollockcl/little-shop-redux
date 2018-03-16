@@ -23,6 +23,20 @@
         <td> <%= invoice.updated_at %> </td>
       </tr>
     </table>
+
+    <% traits[:receipts].each do |receipt| %>
+
+    <ul>
+
+      <li> Price: <%= receipt[:price] %> </li>
+      <li> x<%= receipt[:quantity]%> </li>
+
+    </ul>
+
+    <% end %>
+
+    <p>Total: <%= traits[:total] %></p>
+
   </body>
 
 </html>
