@@ -1,30 +1,12 @@
 <html>
   <head></head>
   <body>
-    <h1>Merchant</h1>
-    <table>
-      <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>created</th>
-        <th>updated</th>
-        <th>action</th>
-      </tr>
+    <h1>Edit Merchant</h1>
 
-      <tr>
-        <td>
-          <%= merchant.id %>
-        </td>
-        <td>
-          <form action="/merchants/<%= merchant.id %>/edit" method="POST">
-            <input type="hidden" name="_method" value="PATCH" />
-            <input type="text" name="new_name" value="<%= merchant.name %>"/>
-            <input class="button" type="submit" value="Submit"/>
-          </form>
-        </td>
-        <td> <%= merchant.created_at %> </td>
-        <td> <%= merchant.updated_at %> </td>
-      </tr>
-    </table>
+      <form action="/merchants/<%= merchant.id %>/edit" method="POST">
+        <input type="hidden" name="_method" value="PATCH" />
+        <p>Name: <input type="text" name="new_name" value="<%= merchant.name %>"/></p>
+        <input class="button" type="submit" value="Submit"/>
+      </form>
   </body>
 </html>
