@@ -1,30 +1,36 @@
 <!doctype html>
 <html>
-<head>
-  <link rel="stylesheet" href="/main.css">
-</head>
-<nav>
-  <ul>
-    <li>
-      <form action="/merchants">
-        <input class="button" type="submit" value="Merchants"/>
-      </form>
-    </li>
-    <li>
-      <form action="/items">
-        <input class="button" type="submit" value="Items"/>
-      </form>
-    </li>
-    <li>
-      <form action="/invoices">
-        <input class="button" type="submit" value="Invoices"/>
-      </form>
-    </li>
-  </ul>
-</nav>
-<body>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/main.css">
+  </head>
+  <nav>
+    <ul>
+      <li>
+        <form action="/">
+          <input class="nav_button" type="submit" value="LittleShop"/>
+        </form>
+      </li>
+      <li>
+        <form action="/merchants">
+          <input class="nav_button" type="submit" value="Merchants"/>
+        </form>
+      </li>
+      <li>
+        <form action="/items">
+          <input class="nav_button" type="submit" value="Items"/>
+        </form>
+      </li>
+      <li>
+        <form action="/invoices">
+          <input class="nav_button" type="submit" value="Invoices"/>
+        </form>
+      </li>
+    </ul>
+  </nav>
+  <body>
 
-  <%= yield %>
+    <%= yield %>
 
-</body>
+  </body>
 </html>
