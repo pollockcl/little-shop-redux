@@ -36,7 +36,7 @@ RSpec.describe do
       it 'should edit merchant' do
         visit '/merchants/1/edit'
 
-        expect(page).to have_content(1)
+        expect(page).to have_content('Name: ')
 
         fill_in 'new_name', with: 'Anakin Skywalker'
         click_button('Submit')
