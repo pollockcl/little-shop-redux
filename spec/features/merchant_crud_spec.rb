@@ -25,7 +25,7 @@ RSpec.describe do
 
         click_link('Darth Plagueis the Wise')
 
-        expect(current_path).to eq('/merchants/view/1')
+        expect(current_path).to eq('/merchants/1/view')
         expect(page).to have_content(1)
         expect(page).to have_content('Darth Plagueis the Wise')
         expect(page).to have_content('created')
@@ -34,7 +34,7 @@ RSpec.describe do
 
     describe 'update' do
       it 'should edit merchant' do
-        visit '/merchants/edit/1'
+        visit '/merchants/1/edit'
 
         expect(page).to have_content(1)
 
