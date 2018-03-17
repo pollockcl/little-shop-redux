@@ -1,0 +1,64 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Invoices Dashboard</h1>
+
+    <table class="dashboard_header">
+      <tr>
+        <th colspan="2">Status Percentages</th>
+      </tr>
+      <tr>
+        <td>Pending: </td>
+        <td><%= invoices.pending %>%</td>
+      </tr>
+      <tr>
+        <td>Pending: </td>
+        <td><%= invoices.pending %>%</td>
+      </tr>
+      <tr>
+        <td>Pending: </td>
+        <td><%= invoices.pending %>%</td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <th colspan="2">Unit Prices</th>
+      </tr>
+      <tr>
+        <td>Highest</td>
+      </tr>
+      <tr>
+        <td>Invoice:</td>
+        <td><a href="/invoices/<%= invoices.highest_price %>/view"><%= invoices.highest_price %></a></td>
+      </tr>
+      <tr>
+        <td>Lowest</td>
+      </tr>
+      <tr>
+        <td>Invoice:</td>
+        <td><a href="/invoices/<%= invoices.lowest_price %>/view"><%= invoices.lowest_price %></a></td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <th colspan="2">Quantity</th>
+      </tr>
+      <tr>
+        <td>Highest</td>
+      </tr>
+      <tr>
+        <td>Invoice:</td>
+        <td><a href="/invoices/<%= invoices.highest_quantity %>/view"><%= invoices.highest_quantity %></a></td>
+      </tr>
+      <tr>
+        <td>Lowest</td>
+      </tr>
+      <tr>
+        <td>Invoice:</td>
+        <td><a href="/invoices/<%= invoices.lowest_quantity %>/view"><%= invoices.lowest_quantity %></a></td>
+      </tr>
+    </table>
+  </body>
+</html>
