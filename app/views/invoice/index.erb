@@ -23,7 +23,7 @@
           <td> <%= invoice.created_at %></td>
           <td> <%= invoice.updated_at %></td>
           <td>
-            <form action="/invoices/edit/<%= invoice.id %>" method="GET">
+            <form action="/invoices/<%= invoice.id %>/edit" method="GET">
               <input type="submit" value="Edit"/>
             </form>
 

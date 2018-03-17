@@ -49,7 +49,7 @@ RSpec.describe do
         fill_in 'new_title', with: 'Burrito del Gerg'
         click_button('Submit')
 
-        expect(current_path).to eq('/items/1/edit')
+        expect(current_path).to eq('/items')
         expect(page).to have_content('Burrito del Gerg')
       end
     end

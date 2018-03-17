@@ -18,7 +18,7 @@ class LittleShopApp < Sinatra::Base
   get '/merchants/:id/view' do
     merchant = Merchant.find(params['id'])
 
-    erb :'merchant/singular', locals: { merchant: merchant }
+    erb :'merchant/show', locals: { merchant: merchant }
   end
 
   get '/merchants/new' do
@@ -32,9 +32,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   patch '/merchants/:id/edit' do
-    merchant      = Merchant.find(params['id'])
-    merchant.name = params['new_name']
-    merchant.save
+    Merchant.update(params['id'], name: params['new_name'])
 
     redirect :'/merchants'
   end
@@ -60,15 +58,14 @@ class LittleShopApp < Sinatra::Base
     invoice = Invoice.find(params['id'])
     traits  = InvoiceItem.invoice_view(params['id'])
 
-    erb :'invoice/singular', locals: { invoice: invoice, traits: traits }
+    erb :'invoice/show', locals: { invoice: invoice, traits: traits }
   end
 
   patch '/invoices/:id/edit' do
-    invoice             = Invoice.find(params['id'])
-    invoice.customer_id = params['new_customer_id']
-    invoice.merchant_id = params['new_merchant_id']
-    invoice.status      = params['new_status']
-    invoice.save
+    Invoice.update(params['id'],
+                   customer_id: params['new_customer_id'],
+                   merchant_id: params['new_merchant_id'],
+                   status: params['new_status'])
 
     redirect :'/invoices'
   end
@@ -107,12 +104,11 @@ class LittleShopApp < Sinatra::Base
   end
 
   patch '/items/:id/edit' do
-    item       = Item.find(params[:id])
-    item.title = params['new_title']
-    item.description = params['new_description']
-    item.unit_price = params['new_price']
-    item.merchant_id = params['new_merch_id']
-    item.save
+    Item.update(params['id'],
+                title: params['new_title'],
+                description: params['new_description'],
+                price: params['new_price'],
+                merchant_id: params['new_merch_id'])
 
     redirect :'/items'
   end

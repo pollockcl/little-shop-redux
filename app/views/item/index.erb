@@ -30,7 +30,7 @@
         <td> <%= item.created_at.strftime("%d/%m/%Y %H:%M") %></td>
         <td> <%= item.updated_at.strftime("%d/%m/%Y %H:%M") %></td>
         <td>
-          <form action="/items/edit/<%= item.id %>" method="GET">
+          <form action="/items/<%= item.id %>/edit" method="GET">
             <input type="submit" value="Edit"/>
           </form>
 
