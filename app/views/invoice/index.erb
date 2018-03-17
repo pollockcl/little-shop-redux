@@ -24,12 +24,12 @@
           <td> <%= invoice.updated_at %></td>
           <td>
             <form action="/invoices/<%= invoice.id %>/edit" method="GET">
-              <input type="submit" value="Edit"/>
+              <input class="button" type="submit" value="Edit"/>
             </form>
 
             <form action="/invoices/<%= invoice.id %>/delete" method="POST">
               <input type="hidden" name="_method" value="DELETE"/>
-              <input type="submit" value="Delete"/>
+              <input class="button" type="submit" value="Delete"/>
             </form>
           </td>
         </tr>
