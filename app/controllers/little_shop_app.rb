@@ -9,6 +9,12 @@ class LittleShopApp < Sinatra::Base
     erb :'merchant/index', locals: { merchants: merchants }
   end
 
+  get '/merchants-dashboard' do
+    merchants = Merchant.all
+
+    erb :'merchant/dashboard', locals: { merchants: merchants }
+  end
+
   get '/merchants/:id/edit' do
     merchant = Merchant.find(params['id'])
 

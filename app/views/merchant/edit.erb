@@ -2,11 +2,10 @@
   <head></head>
   <body>
     <h1>Edit Merchant</h1>
-
       <form action="/merchants/<%= merchant.id %>/edit" method="POST">
         <input type="hidden" name="_method" value="PATCH" />
         <p>Name: <input type="text" name="new_name" value="<%= merchant.name %>"/></p>
-        <input class="button" type="submit" value="Submit"/>
+        <input class="button-small" type="submit" value="Submit"/>
       </form>
   </body>
 </html>

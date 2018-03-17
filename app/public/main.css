@@ -64,13 +64,6 @@ a:hover{
     background-color: #fcc510;
 }
 
-
-.button{
-    background-color: #000000;
-    color: #FFFFFF;
-    height: 25px;
-}
-
 .edit_button{
     background-color: #fca311;
 }
@@ -107,3 +100,13 @@ td.dummy_table{
     background-color: #e5e5e5;
 
 }
+
+.button-small {
+  display: inline-block;
+    background-color: #fca311;
+    color: #000000;
+    padding: 10px;
+    border-radius: 10px;
+    margin:2px;
+    font-size: 16px;
+ }
