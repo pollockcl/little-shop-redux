@@ -1,23 +1,39 @@
 RSpec.describe do
   describe 'When visiting' do
+
+    before(:each) do
+      Item.create(title: 'Burrito del Greg',
+                  description: 'That burrito which belongs to Greg',
+                  price: 6,
+                  merchant_id: 12337890)
+    end
+
     describe 'create' do
       it 'can create item' do
-        Item.create(title: 'Burrito del Greg', description: 'That burrito which belongs to Greg', price: 6, merchant_id: 12337890)
-        visit '/items'
-        
+        visit '/items/create'
+
+        fill_in 'title',       with: 'Shrek Action Figure'
+        fill_in 'description', with: 'Shreks stuff'
+        fill_in 'price',       with: '99.99'
+        fill_in 'merchant_id', with: '123'
+
+        click_on 'Create'
+
         expect(current_path).to eq('/items')
-        expect(page).to have_content('Burrito del Greg')
-        expect(Item.count).to eq(1)
+        expect(page).to have_content('Shreks stuff')
+        expect(page).to have_content('99.99')
+        expect(Item.count).to eq(2)
       end
     end
 
     describe 'read' do
       it 'can view item' do
-        Item.create(title: 'Burrito del Greg', description: 'That burrito which belongs to Greg', price: 6, merchant_id: 12337890)
+        visit '/items'
 
-        click_link('Burrito del Greg')
+        click_link ('Burrito del Greg')
 
-        expect(current_path).to eq('/items/view/1')
+
+        expect(current_path).to eq('/items/1/view')
         expect(page).to have_content(6)
         expect(page).to have_content('Burrito del Greg')
         expect(page).to have_content('created')
@@ -26,11 +42,9 @@ RSpec.describe do
 
     describe 'update' do
       it 'should edit item' do
-        Item.create(title: 'Burrito del Greg', description: 'That burrito which belongs to Greg', price: 6, merchant_id: 12337890)
+        visit '/items/1/edit'
 
-        visit 'items/edit/1'
-
-        expect(page).to have_content(6)
+        expect(page).to have_field('new_title', with: 'Burrito del Greg')
 
         fill_in 'new_title', with: 'Burrito del Gerg'
         click_button('Submit')
@@ -42,12 +56,9 @@ RSpec.describe do
 
     describe 'delete' do
       it 'should delete a item' do
-        Item.create(title: 'Burrito del Greg')
         visit '/items'
 
-        expect(current_path).to eq('/items')
-
-        click_button 'Delete'
+        click_on 'Delete'
 
         expect(page).to_not have_content('Burrito del Greg')
       end

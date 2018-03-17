@@ -8,7 +8,7 @@ RSpec.describe Invoice do
 
         click_link('1')
 
-        expect(current_path).to eq('/invoices/view/1')
+        expect(current_path).to eq('/invoices/1/view')
         expect(page).to have_content(1)
         expect(page).to have_content('83770')
       end
@@ -19,7 +19,7 @@ RSpec.describe Invoice do
         Invoice.create(merchant_id: '83770')
         visit '/invoices'
 
-        visit 'invoices/edit/1'
+        visit 'invoices/1/edit'
 
         expect(page).to have_content(1)
 
