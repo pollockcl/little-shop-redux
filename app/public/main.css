@@ -37,15 +37,14 @@ tr{
     background-color: #FFFFFF;
 }
 
-th, td{
-    width: 150px;
-    border: 1px solid black;
-}
-
 tr:hover{
     background-color: #e5e5e5;
 }
 
+th, td{
+    width: 150px;
+    border: 1px solid black;
+}
 
 .nav_button {
     background-color: #fca311;

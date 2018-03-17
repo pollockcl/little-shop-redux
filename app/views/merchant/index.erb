@@ -6,7 +6,7 @@
     <h1>Merchants</h1>
 
     <form action="/merchants/new" method="GET">
-      <input type="submit" value="Create New Merchant"/>
+      <input class="button" type="submit" value="Create New Merchant"/>
     </form>
 
     <table>
@@ -27,12 +27,12 @@
         <td> <%= merchant.updated_at %></td>
         <td>
           <form action="/merchants/<%= merchant.id %>/edit" method="GET">
-            <input type="submit" value="Edit"/>
+            <input class="button"type="submit" value="Edit"/>
           </form>
 
           <form action="/merchants/<%= merchant.id %>/delete" method="POST">
             <input type="hidden" name="_method" value="DELETE"/>
-            <input type="submit" value="Delete"/>
+            <input class="button" type="submit" value="Delete"/>
           </form>
         </td>
       </tr>
