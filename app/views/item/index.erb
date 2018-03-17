@@ -31,12 +31,12 @@
         <td> <%= item.updated_at.strftime("%d/%m/%Y %H:%M") %></td>
         <td>
           <form action="/items/<%= item.id %>/edit" method="GET">
-            <input type="submit" value="Edit"/>
+            <input class="button-small" type="submit" value="Edit"/>
           </form>
 
           <form action="/items/<%= item.id %>/delete" method="POST">
             <input type="hidden" name="_method" value="DELETE"/>
-            <input type="submit" value="Delete"/>
+            <input class="button-small" type="submit" value="Delete"/>
           </form>
         </td>
       </tr>
