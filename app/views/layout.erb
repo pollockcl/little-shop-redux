@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <link rel="stylesheet" href="/main.css">
+  <title>Little Shop</title>
+</head>
+<nav>
+  <ul>
+    <li>
+      <form action="/merchants">
+        <input class="button" type="submit" value="Merchants"/>
+      </form>
+    </li>
+    <li>
+      <form action="/items">
+        <input class="button" type="submit" value="Items"/>
+      </form>
+    </li>
+    <li>
+      <form action="/invoices">
+        <input class="button" type="submit" value="Invoices"/>
+      </form>
+    </li>
+  </ul>
+</nav>
+<body>
+
+  <%= yield %>
+
+</body>
+</html>
