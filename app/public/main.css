@@ -91,3 +91,19 @@ a:hover{
     background-color: yellow;
     color: #000000
 }
+
+table.dummy_table{
+    background-color: #e5e5e5;
+}
+
+th.dummy_table{
+    border: 0px;
+    background-color: #e5e5e5;
+
+}
+
+td.dummy_table{
+    border: 0px;
+    background-color: #e5e5e5;
+
+}
