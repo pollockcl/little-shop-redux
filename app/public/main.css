@@ -1,0 +1,29 @@
+nav ul {
+    list-style-type: square;
+    padding: 5px;
+    overflow: hidden;
+    background-color: #14213d;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 100px;
+    float: left;
+    width: 200px;
+}
+
+body {
+    font-family: "Arial";
+    background: #e5e5e5;
+    border: 3px solid: #fca311;
+}
+
+.button {
+    background-color: #fca311;
+    color: #000000;
+    padding: 10px;
+    border-radius: 10px;
+    margin:2px;
+    width: 200px;
+    font-size: 16px;
+ }
