@@ -9,4 +9,8 @@ RSpec.describe Merchant do
       end
     end
   end
+
+  describe 'Validates Methods'
+
+  end
 end
