@@ -73,6 +73,7 @@ a:hover{
 
 .edit_button{
     background-color: #fca311;
+    height: 22px;
 }
 
 .edit_button:hover{
@@ -81,6 +82,7 @@ a:hover{
 
 .delete_button{
     background-color: #d82f11;
+    height: 22px;
 }
 
 .delete_button:hover{
@@ -94,18 +96,18 @@ a:hover{
 
 table.dummy_table{
     background-color: #e5e5e5;
+    margin-bottom: 15px;
 }
 
 th.dummy_table{
     border: 0px;
     background-color: #e5e5e5;
-
 }
 
 td.dummy_table{
     border: 0px;
     background-color: #e5e5e5;
-
+    height: 30px;
 }
 
 .button-small {
