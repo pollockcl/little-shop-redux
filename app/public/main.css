@@ -7,8 +7,9 @@ nav ul {
 
 nav li {
     display: inline-block;
-    margin-right: 100px;
-    float: left;
+    margin-right: 10px;
+    margin-left: 10px;
+    float: center;
     width: 200px;
 }
 
@@ -16,6 +17,7 @@ body {
     font-family: "Arial";
     background: #e5e5e5;
     border: 3px solid: #fca311;
+    text-align: center;
 }
 
 .button {
@@ -27,3 +29,7 @@ body {
     width: 200px;
     font-size: 16px;
  }
+table{
+    margin-left:auto;
+    margin-right:auto;
+}
