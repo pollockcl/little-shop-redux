@@ -1,10 +1,10 @@
 <html>
   <head></head>
   <body>
-    <h1>item</h1>
+    <h1>Items</h1>
 
     <form action="/items/create" method="GET">
-      <input type="submit" value="Create New Item"/>
+      <input class="button-small" type="submit" value="Create New Item"/>
     </form>
 
     <table>
@@ -31,12 +31,12 @@
         <td> <%= item.updated_at.strftime("%d/%m/%Y %H:%M") %></td>
         <td>
           <form action="/items/<%= item.id %>/edit" method="GET">
-            <input type="submit" value="Edit"/>
+            <input class="button-small" type="submit" value="Edit"/>
           </form>
 
           <form action="/items/<%= item.id %>/delete" method="POST">
             <input type="hidden" name="_method" value="DELETE"/>
-            <input type="submit" value="Delete"/>
+            <input class="button-small" type="submit" value="Delete"/>
           </form>
         </td>
       </tr>
