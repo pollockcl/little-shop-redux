@@ -71,6 +71,22 @@ a:hover{
     height: 25px;
 }
 
+.edit_button{
+    background-color: #fca311;
+}
+
+.edit_button:hover{
+    background-color: #fcc510;
+}
+
+.delete_button{
+    background-color: #d82f11;
+}
+
+.delete_button:hover{
+    background-color: #d87411;
+}
+
 .button:hover{
     background-color: yellow;
     color: #000000
