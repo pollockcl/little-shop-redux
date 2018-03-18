@@ -3,7 +3,7 @@
   <body>
     <h1>Invoices Dashboard</h1>
 
-    <table class="dashboard_header">
+    <table class="dashboard_box">
       <tr>
         <th colspan="2">Status Percentages</th>
       </tr>
@@ -21,19 +21,19 @@
       </tr>
     </table>
 
-    <table>
+    <table class="dashboard_box">
       <tr>
         <th colspan="2">Unit Prices</th>
       </tr>
       <tr>
-        <td>Highest</td>
+        <td class="category">Highest</td>
       </tr>
       <tr>
         <td>Invoice:</td>
         <td><a href="/invoices/<%= invoices.highest_price %>/view"><%= invoices.highest_price %></a></td>
       </tr>
       <tr>
-        <td>Lowest</td>
+        <td class="category">Lowest</td>
       </tr>
       <tr>
         <td>Invoice:</td>
@@ -41,19 +41,19 @@
       </tr>
     </table>
 
-    <table>
+    <table class="dashboard_box">
       <tr>
         <th colspan="2">Quantity</th>
       </tr>
       <tr>
-        <td>Highest</td>
+        <td class="category">Highest</td>
       </tr>
       <tr>
         <td>Invoice:</td>
         <td><a href="/invoices/<%= invoices.highest_quantity %>/view"><%= invoices.highest_quantity %></a></td>
       </tr>
       <tr>
-        <td>Lowest</td>
+        <td class="category">Lowest</td>
       </tr>
       <tr>
         <td>Invoice:</td>
