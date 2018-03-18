@@ -94,7 +94,7 @@ class LittleShopApp < Sinatra::Base
   get '/items/:id/edit' do
     item = Item.find(params['id'])
 
-    erb :'item/edit', locals: { item: item }
+    erb :'item/edit', locals: { item: item, merchants: Merchant.order(:name) }
   end
 
   get '/items/:id/view' do
