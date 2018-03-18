@@ -38,7 +38,7 @@ RSpec.describe do
       it 'can view merchant' do
         visit '/merchants'
 
-        click_link('Darth Plagueis the Wise')
+        click_on('Darth Plagueis the Wise')
 
         expect(current_path).to eq('/merchants/1/view')
         expect(page).to have_content(1)
