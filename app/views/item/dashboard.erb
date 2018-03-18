@@ -1,0 +1,21 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Items</h1>
+
+    <table class="dashboard_header">
+      <tr>
+        <th>Total number of items</th>
+        <th>Average price of items</th>
+        <th>Newest item</th>
+        <th>Oldest item</th>
+      </tr>
+      <tr>
+        <td><a href="/items/view/<%= items.count %>"><%= items.count %></a></td>
+        <td><a href="/items/view/<%= items.average_price %>"><%= items.average_price %></a></td>
+        <td><a href="/items/view/<%= items.newest %>"><%= items.newest %></a></td>
+        <td><a href="/items/view/<%= items.oldest %>"><%= items.oldest %></a></td>
+      </tr>
+    </table>
+  </body>
+</html>
