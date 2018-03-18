@@ -3,11 +3,11 @@
   <body>
     <h1>Edit <%= item.title %></h1>
 
-    <form action="/items/<%= item.id %>/edit" method="POST">
+    <form class="item_form" action="/items/<%= item.id %>/edit" method="POST">
       <input type="hidden" name="_method" value="PATCH"/>
 
-      <h4 class="item_form">Merchant</h4>
-      <select class="item_form" name="new_merch_id">
+      <h4 class="item_form_details">Merchant</h4>
+      <select class="item_form_details" name="new_merch_id">
         <option selected hidden value="<%= item.merchant.id %>"><%= item.merchant.name %></option>
 
         <% merchants.each do |merchant| %>
@@ -19,17 +19,17 @@
         <% end %>
       </select>
 
-      <h4 class="item_form">Title</h4>
-      <input class="item_form" type="text" name="new_title" value="<%= item.title %>"/>
+      <h4 class="item_form_details">Title</h4>
+      <input class="item_form_details" type="text" name="new_title" value="<%= item.title %>"/>
 
-      <h4 class="item_form">Description</h4>
-      <input class="item_form" type="text" name="new_description" value="<%= item.description %>"/>
+      <h4 class="item_form_details">Description</h4>
+      <input class="item_form_details" type="text" name="new_description" value="<%= item.description %>"/>
 
-      <h4 class="item_form">Price</h4>
-      <input class="item_form" type="number" step="any" name="new_price" value="<%= item.price %>"/>
+      <h4 class="item_form_details">Price</h4>
+      <input class="item_form_details" type="number" step="any" name="new_price" value="<%= item.price %>"/>
 
-      <h4 class="item_form">Image URL</h4>
-      <input class="item_form" type="text" name="new_image_url" value="<%= item.image_url %>"/>
+      <h4 class="item_form_details">Image URL</h4>
+      <input class="item_form_details" type="text" name="new_image_url" value="<%= item.image_url %>"/>
 
       <br><br>
 
