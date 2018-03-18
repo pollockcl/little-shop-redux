@@ -13,7 +13,7 @@
             <section>
               <a href="/items/<%= item.id %>/view"><%= item.title %></a>
               <br>
-              <%= item.price %>
+              $<%= sprintf "%.2f", item.price %>
             </section>
           </section>
       <% end %>
