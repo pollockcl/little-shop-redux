@@ -1,32 +1,45 @@
 <html>
   <head></head>
   <body>
-    <h1>Item</h1>
-    <table>
-      <tr>
-        <th>title</th>
-        <th>description</th>
-        <th>price</th>
-        <th>created</th>
-        <th>updated</th>
-        <th>action</th>
-      </tr>
+    <h1>Edit <%= item.title %></h1>
 
-      <tr>
-        <td>
-          <%= item.id %>
-        </td>
-        <td>
-          <form action="/items/<%= item.id %>/edit" method="POST">
-            <input type="hidden" name="_method" value="PATCH"/>
-            <input type="text" name="new_title" value="<%= item.title %>"/>
-            <input type="text" name="new_description" value="<%= item.description %>"/>
-            <input type="float" name="new_price" value="<%= item.price %>"/>
-            <input type="integer" name="new_merch_id" value="<%=  item.merchant_id %>"/>
-            <input class="button-small" type="submit" value="Submit"/>
-          </form>
-        </td>
-      </tr>
-    </table>
+    <form class="item_form" action="/items/<%= item.id %>/edit" method="POST">
+      <input type="hidden" name="_method" value="PATCH"/>
+
+      <h4 class="item_form_details">Merchant</h4>
+      <select class="item_form_details" name="new_merch_id">
+        <option selected hidden value="<%= item.merchant.id %>"><%= item.merchant.name %></option>
+
+        <% merchants.each do |merchant| %>
+
+          <option value="<%= merchant.id %>">
+            <%= merchant.name %>
+          </option>
+
+        <% end %>
+      </select>
+
+      <h4 class="item_form_details">Title</h4>
+      <input class="item_form_details" type="text" name="new_title" value="<%= item.title %>"/>
+
+      <h4 class="item_form_details">Description</h4>
+      <input class="item_form_details" type="text" name="new_description" value="<%= item.description %>"/>
+
+      <h4 class="item_form_details">Price</h4>
+      <input class="item_form_details" type="number" step="any" name="new_price" value="<%= item.price %>"/>
+
+      <h4 class="item_form_details">Image URL</h4>
+      <input class="item_form_details" type="text" name="new_image_url" value="<%= item.image_url %>"/>
+
+      <br><br>
+
+      <left>
+        <input class="button-small" type="submit" name="cancel" value="Cancel"/>
+      </left>
+
+      <right>
+        <input class="button-small" type="submit" value="Submit"/>
+      </right>
+    </form>
   </body>
 </html>

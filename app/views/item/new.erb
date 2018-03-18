@@ -4,12 +4,41 @@
 
     <h1>Create New Item</h1>
 
-    <form action="/items/create" method="POST">
-      <p>Name: <input type="text" name="title"/> </p>
-      <p>Description: <input type="text" name="description"/> </p>
-      <p>Price: <input type="number" step="any" name="price"/> </p>
-      <p>Merchant ID: <input type="number" name="merchant_id"/> </p>
-      <input class="button-small" type="submit" value="Create"/>
+
+    <form class="item_form" action="/items/create" method="POST">
+      <h4 class="item_form_details">Merchant</h4>
+      <select class="item_form_details" name="merchant_id">
+
+        <% merchants.each do |merchant| %>
+
+          <option value="<%= merchant.id %>">
+            <%= merchant.name %>
+          </option>
+
+        <% end %>
+      </select>
+
+      <h4 class="item_form_details">Title</h4>
+      <input class="item_form_details" type="text" name="title"/>
+
+      <h4 class="item_form_details">Description</h4>
+      <input class="item_form_details" type="text" name="description"/>
+
+      <h4 class="item_form_details">Price</h4>
+      <input class="item_form_details" type="number" step="any" name="price"/>
+
+      <h4 class="item_form_details">Image URL</h4>
+      <input class="item_form_details" type="text" name="image_url"/>
+
+      <br><br>
+
+      <left>
+        <input class="button-small" type="submit" name="cancel" value="Cancel"/>
+      </left>
+
+      <right>
+        <input class="button-small" type="submit" value="Create"/>
+      </right>
     </form>
   </body>
 </html>

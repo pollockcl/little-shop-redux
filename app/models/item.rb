@@ -4,6 +4,8 @@ class Item < ActiveRecord::Base
   validates :price, presence: true
   validates :merchant_id, presence: true
 
+  belongs_to :merchant
+
   def self.count
     self.all.length
   end
@@ -19,4 +21,5 @@ class Item < ActiveRecord::Base
   def self.average_price
 
   end
+
 end
