@@ -11,7 +11,7 @@
           <section class="items">
             <img src="<%= item.image_url %>"
             <section>
-              <%= item.title %>
+              <a href="/items/<%= item.id %>/view"><%= item.title %></a>
               <br>
               <%= item.price %>
             </section>
