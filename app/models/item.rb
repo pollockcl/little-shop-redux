@@ -19,7 +19,7 @@ class Item < ActiveRecord::Base
   end
 
   def self.average_price
-    average(:price).round
+    average(:price).round(2)
   end
 
 end
