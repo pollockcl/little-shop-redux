@@ -36,7 +36,8 @@ RSpec.describe do
         expect(current_path).to eq('/items/1/view')
         expect(page).to have_content(6)
         expect(page).to have_content('Burrito del Greg')
-        expect(page).to have_content('created')
+        page.should have_selector(:link_or_button, 'Edit')
+        page.should have_selector(:link_or_button, 'Delete')
       end
     end
 
