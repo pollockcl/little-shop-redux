@@ -39,7 +39,7 @@ RSpec.describe do
         expect(page).to have_content('Name: ')
 
         fill_in 'new_name', with: 'Anakin Skywalker'
-        click_button('Submit')
+        click_on('Update Merchant')
 
         expect(current_path).to eq('/merchants')
         expect(page).to have_content('Anakin Skywalker')

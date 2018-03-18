@@ -38,7 +38,9 @@ class LittleShopApp < Sinatra::Base
   end
 
   patch '/merchants/:id/edit' do
-    Merchant.update(params['id'], name: params['new_name'])
+    unless params.include?('cancel')
+      Merchant.update(params['id'], name: params['new_name'])
+    end
 
     redirect :'/merchants'
   end

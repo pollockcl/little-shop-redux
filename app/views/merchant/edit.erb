@@ -5,15 +5,8 @@
       <table class="dummy_table">
         <form action="/merchants/<%= merchant.id %>/edit" method="POST">
           <input type="hidden" name="_method" value="PATCH" />
-          Name: <input type="text" name="new_name" value="<%= merchant.name %>"/>
-
-          <br>
-          <br>
-
-          <form action="/merchants/<%= merchant.id %>/view">
-            <input class="button-small" type="submit" value="Cancel"/>
-          </form>
-
+          <p>Name: <input type="text" name="new_name" value="<%= merchant.name %>"/></p>
+          <input class="button-small" type="submit" name="cancel" value="Cancel"/>
           <input class="button-small" type="submit" value="Update Merchant"/>
         </form>
       </table>
