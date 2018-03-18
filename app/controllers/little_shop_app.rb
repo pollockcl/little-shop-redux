@@ -128,8 +128,4 @@ class LittleShopApp < Sinatra::Base
 
     redirect :'/items'
   end
-
-  def cancel
-
-  end
 end
