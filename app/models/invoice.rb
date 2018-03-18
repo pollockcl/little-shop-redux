@@ -2,15 +2,18 @@ class Invoice < ActiveRecord::Base
   validates :merchant_id, presence: true
 
   def self.pending
-    (self.find_all { |invoice| invoice.status = "pending"} / self.all.length) * 100
+    amount = all.count { |invoice| invoice.status == 'pending' }
+    amount * 100 / all.length
   end
 
   def self.shipped
-
+    amount = all.count { |invoice| invoice.status == 'shipped' }
+    amount * 100 / all.length
   end
 
   def self.returned
-
+    amount = all.count { |invoice| invoice.status == 'returned' }
+    amount * 100 / all.length
   end
 
   def self.highest_price
@@ -21,11 +24,11 @@ class Invoice < ActiveRecord::Base
 
   end
 
-  def highest_quantity
+  def self.highest_quantity
 
   end
 
-  def lowest_quantity
+  def self.lowest_quantity
 
   end
 end

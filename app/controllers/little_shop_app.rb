@@ -60,7 +60,7 @@ class LittleShopApp < Sinatra::Base
 
   get '/invoices-dashboard' do
     invoices = Invoice.all
-    erb :'invoice/index', locals: { invoices: invoices }
+    erb :'invoice/dashboard', locals: { invoices: invoices }
   end
 
   get '/invoices/:id/edit' do
