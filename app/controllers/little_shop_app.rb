@@ -94,7 +94,7 @@ class LittleShopApp < Sinatra::Base
   get '/items/:id/edit' do
     item = Item.find(params['id'])
 
-    erb :'item/edit', locals: { item: item }
+    erb :'item/edit', locals: { item: item, merchants: Merchant.order(:name) }
   end
 
   get '/items/:id/view' do
@@ -114,11 +114,13 @@ class LittleShopApp < Sinatra::Base
   end
 
   patch '/items/:id/edit' do
-    Item.update(params['id'],
-                title: params['new_title'],
-                description: params['new_description'],
-                price: params['new_price'],
-                merchant_id: params['new_merch_id'])
+    unless params.include?('cancel')
+      Item.update(params['id'],
+                  title: params['new_title'],
+                  description: params['new_description'],
+                  price: params['new_price'],
+                  merchant_id: params['new_merch_id'])
+    end
 
     redirect :'/items'
   end
