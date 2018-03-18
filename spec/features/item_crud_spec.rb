@@ -5,17 +5,21 @@ RSpec.describe do
       Item.create(title: 'Burrito del Greg',
                   description: 'That burrito which belongs to Greg',
                   price: 6,
-                  merchant_id: 12337890)
+                  merchant_id: 12337890,
+                  image_url: 'https://i.redd.it/x2rxq3qzujm01.jpg')
     end
 
     describe 'create' do
       it 'can create item' do
+        Merchant.create(name: 'Groot')
+
         visit '/items/create'
+
+        select 'Groot', from: 'merchant_id'
 
         fill_in 'title',       with: 'Shrek Action Figure'
         fill_in 'description', with: 'Shreks stuff'
         fill_in 'price',       with: '99.99'
-        fill_in 'merchant_id', with: '123'
 
         click_on 'Create'
 
@@ -36,8 +40,8 @@ RSpec.describe do
         expect(current_path).to eq('/items/1/view')
         expect(page).to have_content(6)
         expect(page).to have_content('Burrito del Greg')
-        page.should have_selector(:link_or_button, 'Edit')
-        page.should have_selector(:link_or_button, 'Delete')
+        expect(page).to have_selector(:link_or_button, 'Edit')
+        expect(page).to have_selector(:link_or_button, 'Delete')
       end
     end
 
