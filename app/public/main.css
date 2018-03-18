@@ -142,3 +142,22 @@ td.dummy_table{
 
 }
 
+.item_show_right{
+    display: inline-block;
+    float:right;
+    text-align: left;
+    padding-right: 100px;
+    width: 40%;
+    height: 40%;
+    margin-bottom: 300px;
+
+}
+
+.item_show_left{
+    margin-bottom: 300px;
+    display: inline-block;
+    height: 40%;
+    width: 40%;
+    float: left;
+    padding-left: 100px;
+}
