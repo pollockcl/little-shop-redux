@@ -2,7 +2,21 @@
   <head></head>
   <body>
 
-    <h1>Merchant</h1>
+    <h1><%= merchant.name %>'s Shop</h1>
+    <table class="dummy_table">
+      <td class="dummy_table">
+        <form action="/merchants/<%= merchant.id %>/edit">
+          <input class="edit_button" type="submit" value="Edit"/>
+        </form>
+      </td>
+
+      <td class="dummy_table">
+        <form action="/merchants/<%= merchant.id %>/delete" method="POST">
+          <input type="hidden" name="_method" value="DELETE"/>
+          <input class="delete_button" type="submit" value="Delete"/>
+        </form>
+      </td>
+    </table>
 
     <table>
       <tr>

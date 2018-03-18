@@ -20,7 +20,7 @@ RSpec.describe do
         click_on 'Create'
 
         expect(current_path).to eq('/items')
-        expect(page).to have_content('Shreks stuff')
+        expect(page).to have_content('Shrek Action Figure')
         expect(page).to have_content('99.99')
         expect(Item.count).to eq(2)
       end
@@ -36,14 +36,16 @@ RSpec.describe do
         expect(current_path).to eq('/items/1/view')
         expect(page).to have_content(6)
         expect(page).to have_content('Burrito del Greg')
-        expect(page).to have_content('created')
+        page.should have_selector(:link_or_button, 'Edit')
+        page.should have_selector(:link_or_button, 'Delete')
       end
     end
 
     describe 'update' do
       it 'should edit item' do
-        visit '/items/1/edit'
+        visit '/items/1/view'
 
+        click_button 'Edit'
         expect(page).to have_field('new_title', with: 'Burrito del Greg')
 
         fill_in 'new_title', with: 'Burrito del Gerg'
@@ -56,7 +58,7 @@ RSpec.describe do
 
     describe 'delete' do
       it 'should delete a item' do
-        visit '/items'
+        visit '/items/1/view'
 
         click_on 'Delete'
 

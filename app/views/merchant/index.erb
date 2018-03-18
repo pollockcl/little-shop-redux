@@ -11,28 +11,24 @@
 
     <table>
       <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>created</th>
-        <th>updated</th>
-        <th>action</th>
+        <th>Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
       </tr>
 
       <% merchants.each do |merchant| %>
 
       <tr>
-        <td> <%= merchant.id %> </td>
         <td> <a href="/merchants/<%= merchant.id %>/view"><%= merchant.name %></a></td>
-        <td> <%= merchant.created_at %></td>
-        <td> <%= merchant.updated_at %></td>
         <td>
           <form action="/merchants/<%= merchant.id %>/edit" method="GET">
-            <input class="button-small" type="submit" value="Edit"/>
+            <input class="edit_button"type="submit" value="Edit"/>
           </form>
-
+        </td>
+        <td>
           <form action="/merchants/<%= merchant.id %>/delete" method="POST">
             <input type="hidden" name="_method" value="DELETE"/>
-            <input class="button-small" type="submit" value="Delete"/>
+            <input class="delete_button" type="submit" value="Delete"/>
           </form>
         </td>
       </tr>

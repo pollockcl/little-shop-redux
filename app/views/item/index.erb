@@ -7,42 +7,16 @@
       <input class="button-small" type="submit" value="Create New Item"/>
     </form>
 
-    <table>
-      <tr>
-        <th>title</th>
-        <th>description</th>
-        <th>merchant_id</th>
-        <th>price</th>
-        <th>created</th>
-        <th>updated</th>
-        <th>action</th>
-      </tr>
-
       <% items.each do |item| %>
+          <section class="items">
+            <img src="<%= item.image_url %>"/>
+            <section>
+              <a href="/items/<%= item.id %>/view"><%= item.title %></a>
+              <br>
+              $<%= sprintf "%.2f", item.price %>
+            </section>
+          </section>
+      <% end %>
 
-      <tr>
-        <td> <a href="/items/<%= item.id %>/view"><%= item.title %></a></td>
-        <td> <%= item.description %> </td>
-        <td> <%= item.merchant_id %> </td>
-        <td> <%= item.created_at %></td>
-        <td> <%= item.updated_at %></td>
-        <td> <%= item.price %> </td>
-        <td> <%= item.created_at.strftime("%d/%m/%Y %H:%M") %></td>
-        <td> <%= item.updated_at.strftime("%d/%m/%Y %H:%M") %></td>
-        <td>
-          <form action="/items/<%= item.id %>/edit" method="GET">
-            <input class="button-small" type="submit" value="Edit"/>
-          </form>
-
-          <form action="/items/<%= item.id %>/delete" method="POST">
-            <input type="hidden" name="_method" value="DELETE"/>
-            <input class="button-small" type="submit" value="Delete"/>
-          </form>
-        </td>
-      </tr>
-
-        <% end %>
-
-    </table>
   </body>
 </html>
