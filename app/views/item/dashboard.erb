@@ -14,7 +14,7 @@
         <td><a href="/items"><%= items.count %></a></td>
         <td>$ <%= items.average_price %></a></td>
         <td><a href="/items/<%= items.newest.id %>/view"><%= items.newest.title %></a></td>
-        <td><%= items.oldest.title %></a></td>
+        <td><a href="/items/<%= items.oldest.id %>/view"><%= items.oldest.title %></a></td>
       </tr>
     </table>
   </body>
