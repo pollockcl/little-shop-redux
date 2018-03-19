@@ -23,15 +23,17 @@
 
     <% merchants.each do |merchant| %>
 
-    <table class="merchant_dbd">
-      <tr><th><a href="/merchants/view/<%= merchant.id %>"><%= merchant.name %></a></th></tr>
-      <tr><td class="category">Item Count:</th></tr>
-      <tr><td><%= merchant.item_count %></td></tr>
-      <tr><td class="category">Avg Item Price:</th></tr>
-      <tr><td><%= merchant.avg_price %></td></tr>
-      <tr><td class="category">Total Cost of Items:</th></tr>
-      <tr><td><%= merchant.total_cost %></td></tr>
-    </table>
+    <section class="merchant_dbd">
+      <table class="merchant_dbd">
+        <tr><th><a href="/merchants/view/<%= merchant.id %>"><%= merchant.name %></a></th></tr>
+        <tr><td class="category">Item Count:</th></tr>
+        <tr><td><%= merchant.item_count %></td></tr>
+        <tr><td class="category">Avg Item Price:</th></tr>
+        <tr><td>$<%= merchant.avg_price %></td></tr>
+        <tr><td class="category">Total Cost of Items:</th></tr>
+        <tr><td>$<%= merchant.total_cost %></td></tr>
+      </table>
+    </section>
 
     <% end %>
   </body>
