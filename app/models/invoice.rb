@@ -17,7 +17,10 @@ class Invoice < ActiveRecord::Base
   end
 
   def self.highest_price
-
+    self.all.max_by do |invoice|
+      invoice_items = InvoiceItem.where(invoice_id: invoice.id).to_a
+      invoice_items.sum { |ii| ii.quantity * ii.unit_price }
+    end
   end
 
   def self.lowest_price
