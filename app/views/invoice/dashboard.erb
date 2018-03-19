@@ -3,78 +3,80 @@
   <body>
     <h1>Invoices Dashboard</h1>
 
-    <table class="dashboard_box">
-      <tr>
-        <th colspan="2">Status Percentages</th>
-      </tr>
-      <tr>
-        <td>Pending: </td>
-        <td><%= invoices.pending %>%</td>
-      </tr>
-      <tr>
-        <td>Shipped: </td>
-        <td><%= invoices.shipped %>%</td>
-      </tr>
-      <tr>
-        <td>Returned: </td>
-        <td><%= invoices.returned %>%</td>
-      </tr>
-    </table>
+    <section class="dashboard_box">
+      <table class="dashboard_box">
+        <tr>
+          <th colspan="2">Status Percentages</th>
+        </tr>
+        <tr>
+          <td>Pending: </td>
+          <td><%= invoices.pending %>%</td>
+        </tr>
+        <tr>
+          <td>Shipped: </td>
+          <td><%= invoices.shipped %>%</td>
+        </tr>
+        <tr>
+          <td>Returned: </td>
+          <td><%= invoices.returned %>%</td>
+        </tr>
+      </table>
+    </section>
 
-    <table class="dashboard_box">
-      <tr>
-        <th colspan="2">Unit Prices</th>
-      </tr>
-      <tr>
-        <td class="category">Highest</td>
-      </tr>
-      <tr>
-        <td>Invoice:</td>
-        <td>
-          <% invoices.highest_price.each do |highest| %>
-          <a href="/invoices/<%= highest.invoice_id %>/view"><%= highest.invoice_id %></a>
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-        <td class="category">Lowest</td>
-      </tr>
-      <tr>
-        <td>Invoice:</td>
-        <td>
-          <% invoices.lowest_price.each do |lowest| %>
-          <a href="/invoices/<%= lowest.invoice_id %>/view"><%= lowest.invoice_id %></a>
-          <% end %>
-        </td>
-      </tr>
-    </table>
+    <section class="dashboard_box">
+      <table class="dashboard_box">
+        <tr>
+          <th colspan="2">Unit Prices</th>
+        </tr>
+        <tr>
+          <td class="category">Highest</td>
+        </tr>
+        <tr>
+          <td>Invoice:</td>
+          <td>
+            <% highest = invoices.highest_price.first %>
+            <a href="/invoices/<%= highest.invoice_id %>/view"><%= highest.invoice_id %></a>
+          </td>
+        </tr>
+        <tr>
+          <td class="category">Lowest</td>
+        </tr>
+        <tr>
+          <td>Invoice:</td>
+          <td>
+            <% lowest = invoices.lowest_price.first %>
+            <a href="/invoices/<%= lowest.invoice_id %>/view"><%= lowest.invoice_id %></a>
+          </td>
+        </tr>
+      </table>
+    </section>
 
-    <table class="dashboard_box">
-      <tr>
-        <th colspan="2">Quantity</th>
-      </tr>
-      <tr>
-        <td class="category">Highest</td>
-      </tr>
-      <tr>
-        <td>Invoice:</td>
-        <td>
-          <% invoices.highest_quantity.each do |highest| %>
-          <a href="/invoices/<%= highest.invoice_id %>/view"><%= highest.invoice_id %></a>
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-        <td class="category">Lowest</td>
-      </tr>
-      <tr>
-        <td>Invoice:</td>
-        <td>
-          <% invoices.lowest_quantity.each do |lowest| %>
-          <a href="/invoices/<%= lowest.invoice_id %>/view"><%= lowest.invoice_id %></a>
-          <% end %>
-        </td>
-      </tr>
-    </table>
+    <section class="dashboard_box">
+      <table class="dashboard_box">
+        <tr>
+          <th colspan="2">Quantity</th>
+        </tr>
+        <tr>
+          <td class="category">Highest</td>
+        </tr>
+        <tr>
+          <td>Invoice:</td>
+          <td>
+            <% highest = invoices.highest_quantity.first %>
+            <a href="/invoices/<%= highest.invoice_id %>/view"><%= highest.invoice_id %></a>
+          </td>
+        </tr>
+        <tr>
+          <td class="category">Lowest</td>
+        </tr>
+        <tr>
+          <td>Invoice:</td>
+          <td>
+            <% lowest = invoices.lowest_quantity.first %>
+            <a href="/invoices/<%= lowest.invoice_id %>/view"><%= lowest.invoice_id %></a>
+          </td>
+        </tr>
+      </table>
+    </section>
   </body>
 </html>
