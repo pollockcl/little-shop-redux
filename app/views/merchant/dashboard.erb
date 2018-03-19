@@ -17,7 +17,8 @@
           <% merchants.highest_price.each do |highest| %>
           <a href="/merchants/<%= highest.id %>/view"><%= highest.name %></a>
           <% end %>
-        </td>         </tr>
+        </td>
+      </tr>
     </table>
 
     <% merchants.each do |merchant| %>
