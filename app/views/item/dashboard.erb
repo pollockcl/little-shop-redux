@@ -1,8 +1,24 @@
 <html>
-  <head></head>
+  <head>
+    <link rel="stylesheet" href="/item/item.css">
+  </head>
   <body>
-    <h1>Items</h1>
-
+    <h1>Items Dashboard</h1>
+    <box>
+      <p>Total number of items</p>
+      <a href="/items"><%= items.count %></a>
+    </box>
+    <box>
+      <p>Average price of items</p>
+      <a>$ <%= items.average_price %></a>
+    </box>
+    <box>
+      <p>Item by Age</p>
+      <p>Newest</p>
+      <a href="/items/<%= items.newest.id %>/view"><%= items.newest.title %></a>
+      <p>Oldest</p>
+      <a href="/items/<%= items.oldest.id %>/view"><%= items.oldest.title %></a>
+    </box>
     <table class="dashboard_header">
       <tr>
         <th>Total number of items</th>
@@ -12,7 +28,7 @@
       </tr>
       <tr>
         <td><a href="/items"><%= items.count %></a></td>
-        <td>$ <%= items.average_price %></a></td>
+        <td><a>$ <%= items.average_price %></a></td>
         <td><a href="/items/<%= items.newest.id %>/view"><%= items.newest.title %></a></td>
         <td><a href="/items/<%= items.oldest.id %>/view"><%= items.oldest.title %></a></td>
       </tr>
