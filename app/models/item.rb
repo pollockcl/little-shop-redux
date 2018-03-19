@@ -11,11 +11,11 @@ class Item < ActiveRecord::Base
   end
 
   def self.oldest
-    self.all.order(:created_at).last.title
+    self.all.order(:created_at).last
   end
 
   def self.newest
-    self.all.order(:created_at).first.title
+    self.all.order(:created_at).first
   end
 
   def self.average_price
