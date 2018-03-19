@@ -4,6 +4,7 @@ class InvoiceItem < ActiveRecord::Base
   validates :quantity, presence: true
   validates :unit_price, presence: true
   belongs_to :invoice
+  belongs_to :item
 
 
   def self.invoice_view(invoice_id)
