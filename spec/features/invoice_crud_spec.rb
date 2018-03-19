@@ -23,8 +23,6 @@ RSpec.describe Invoice do
       it 'delete an invoice' do
         visit '/invoices'
 
-        expect(current_path).to eq('/invoices')
-
         click_button 'Delete'
 
         expect(page).to_not have_content('83770')
