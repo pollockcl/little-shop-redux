@@ -1,0 +1,19 @@
+h1 {
+  background: white;
+  height: 50px;
+  padding: 10px 0px 40px 0px;
+  font-size: 40px;
+}
+
+box {
+  border: black solid 2px;
+  display: inline-block;
+  width: 25%;
+  margin: 0px 20px;
+  height: 500px;
+  vertical-align: top;
+}
+
+box a {
+  font-size: 40px;
+}
