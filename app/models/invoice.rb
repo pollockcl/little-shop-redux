@@ -19,18 +19,22 @@ class Invoice < ActiveRecord::Base
   end
 
   def self.highest_price
-    all.max_by { |invoice| invoice.invoice_items.maximum('unit_price') }.id
+    high = InvoiceItem.maximum('unit_price')
+    InvoiceItem.where(unit_price: high).to_a
   end
 
   def self.lowest_price
-    all.min_by { |invoice| invoice.invoice_items.maximum('unit_price') }.id
+    low = InvoiceItem.minimum('unit_price')
+    InvoiceItem.where(unit_price: low).to_a
   end
 
   def self.highest_quantity
-    all.max_by { |invoice| invoice.invoice_items.maximum('quantity') }.id
+    high = InvoiceItem.maximum('quantity')
+    InvoiceItem.where(quantity: high).to_a
   end
 
   def self.lowest_quantity
-    all.min_by { |invoice| invoice.invoice_items.maximum('quantity') }.id
+    low = InvoiceItem.minimum('quantity')
+    InvoiceItem.where(quantity: low).to_a
   end
 end
