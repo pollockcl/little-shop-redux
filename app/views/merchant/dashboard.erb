@@ -9,8 +9,15 @@
         <th>Merchant with the highest price item</th>
       </tr>
       <tr>
-        <td><a href="/merchants/view/<%= merchants.most_items %>"><%= merchants.most_items %></a></td>
-        <td><a href="/merchants/view/<%= merchants.high_price %>"><%= merchants.high_price %></a></td>
+        <td>
+          <% highest = merchants.most_items %>
+          <a href="/merchants/<%= highest.id %>/view"><%= highest.name %></a>
+        </td>
+        <td>
+          <% merchants.highest_price.each do |highest| %>
+          <a href="/merchants/<%= highest.id %>/view"><%= highest.name %></a>
+          <% end %>
+        </td>
       </tr>
     </table>
 
