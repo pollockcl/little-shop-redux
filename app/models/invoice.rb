@@ -1,5 +1,7 @@
+require 'pry'
 class Invoice < ActiveRecord::Base
   validates :merchant_id, presence: true
+  has_many :invoice_items
 
   def self.pending
     amount = all.count { |invoice| invoice.status == 'pending' }
@@ -17,21 +19,18 @@ class Invoice < ActiveRecord::Base
   end
 
   def self.highest_price
-    self.all.max_by do |invoice|
-      invoice_items = InvoiceItem.where(invoice_id: invoice.id).to_a
-      invoice_items.sum { |ii| ii.quantity * ii.unit_price }
-    end
+    all.max_by { |invoice| invoice.invoice_items.maximum('unit_price') }.id
   end
 
   def self.lowest_price
-
+    all.min_by { |invoice| invoice.invoice_items.maximum('unit_price') }.id
   end
 
   def self.highest_quantity
-
+    all.max_by { |invoice| invoice.invoice_items.maximum('quantity') }.id
   end
 
   def self.lowest_quantity
-
+    all.min_by { |invoice| invoice.invoice_items.maximum('quantity') }.id
   end
 end

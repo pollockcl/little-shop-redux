@@ -30,14 +30,16 @@
       </tr>
       <tr>
         <td>Invoice:</td>
-        <td><a href="/invoices/<%= invoices.highest_price.id %>/view"><%= invoices.highest_price.id %></a></td>
+        <% highest = invoices.highest_price %>
+        <td><a href="/invoices/<%= highest %>/view"><%= highest %></a></td>
       </tr>
       <tr>
         <td class="category">Lowest</td>
       </tr>
       <tr>
         <td>Invoice:</td>
-        <td><a href="/invoices/<%= invoices.lowest_price %>/view"><%= invoices.lowest_price %></a></td>
+        <% lowest = invoices.lowest_price %>
+        <td><a href="/invoices/<%= lowest %>/view"><%= lowest %></a></td>
       </tr>
     </table>
 
@@ -50,14 +52,16 @@
       </tr>
       <tr>
         <td>Invoice:</td>
-        <td><a href="/invoices/<%= invoices.highest_quantity %>/view"><%= invoices.highest_quantity %></a></td>
+        <% highest = invoices.highest_quantity %>
+        <td><a href="/invoices/<%= highest %>/view"><%= highest %></a></td>
       </tr>
       <tr>
         <td class="category">Lowest</td>
       </tr>
       <tr>
         <td>Invoice:</td>
-        <td><a href="/invoices/<%= invoices.lowest_quantity %>/view"><%= invoices.lowest_quantity %></a></td>
+        <% lowest = invoices.lowest_quantity %>
+        <td><a href="/invoices/<%= lowest %>/view"><%= lowest %></a></td>
       </tr>
     </table>
   </body>

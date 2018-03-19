@@ -3,6 +3,7 @@ class InvoiceItem < ActiveRecord::Base
   validates :invoice_id, presence: true
   validates :quantity, presence: true
   validates :unit_price, presence: true
+  belongs_to :invoice
 
 
   def self.invoice_view(invoice_id)
