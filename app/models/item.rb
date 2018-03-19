@@ -11,7 +11,7 @@ class Item < ActiveRecord::Base
   end
 
   def self.oldest
-
+    self.all.order(:created_at).last.title
   end
 
   def self.newest
