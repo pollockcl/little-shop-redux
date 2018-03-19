@@ -4,7 +4,7 @@ class Merchant < ActiveRecord::Base
 
   def self.most_items
     all.max_by do |merchant|
-      merchant.items.count
+      merchant.items.size
     end
   end
 
