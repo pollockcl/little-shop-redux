@@ -185,3 +185,32 @@ td.dummy_table{
     margin-right: 5%;
     width: 90%;
 }
+
+section.merchant_dbd {
+  display: inline-block;
+  width: 33%;
+  text-align: center;
+}
+
+table.merchant_dbd {
+  width: 300px;
+  text-align: left;
+}
+
+section.dashboard_box {
+  display: inline-block;
+  width: 32%;
+  height: 150px;
+  text-align: center;
+  vertical-align: top;
+  border: black solid 1px;
+}
+
+table.dashboard_box {
+  width: 300px;
+  text-align: left;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-style: hidden
+  border-width: 0;
+}
