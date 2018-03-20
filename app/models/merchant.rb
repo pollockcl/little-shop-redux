@@ -24,6 +24,6 @@ class Merchant < ActiveRecord::Base
   end
 
   def total_cost
-
+    Item.where(merchant_id: id).to_a.sum
   end
 end
