@@ -25,6 +25,6 @@ class Merchant < ActiveRecord::Base
   end
 
   def total_cost
-
+    items.sum(:price)
   end
 end

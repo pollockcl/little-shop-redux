@@ -50,6 +50,7 @@ RSpec.describe Invoice do
         end
 
         expect(Invoice.returned).to eq(33)
+
       end
     end
   end
