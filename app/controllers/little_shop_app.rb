@@ -127,7 +127,8 @@ class LittleShopApp < Sinatra::Base
                   title: params['new_title'],
                   description: params['new_description'],
                   price: params['new_price'],
-                  merchant_id: params['new_merch_id'])
+                  merchant_id: params['new_merch_id'],
+                  image_url: params['new_image_url'])
     end
 
     redirect :'/items'
