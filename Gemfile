@@ -6,6 +6,7 @@ gem 'activerecord'
 gem 'sinatra-activerecord'
 
 group :development, :test do
+  gem 'simplecov'
   gem 'pry'
   gem 'shotgun'
   gem 'database_cleaner'
