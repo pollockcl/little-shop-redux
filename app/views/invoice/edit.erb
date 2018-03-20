@@ -20,15 +20,15 @@
         <option selected hidden value="<%= invoice.status %>"><%= invoice.status %></option>
 
         <option>
-          Shipped
+          shipped
         </option>
 
         <option>
-          Pending
+          pending
         </option>
 
         <option>
-          Returned
+          returned
         </option>
       </select>
       <br><br>
@@ -41,5 +41,24 @@
         <input class="button-small" type="submit" value="Submit"/>
       </right>
     </form>
+
+    <table>
+      <tr>
+        <th>Item ID</th>
+        <th>item Title</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+      </tr>
+
+      <% invoice.invoice_items.each do |invoice_item| %>
+
+        <tr>
+          <td> <%= invoice_item.item_id %> </td>
+          <td> <%= invoice_item.item.title %> </td>
+          <td> <%= invoice_item.quantity %> </td>
+          <td> <%= invoice_item.unit_price %> </td>
+        </tr>
+      <% end %>
+    </table>
   </body>
 </html>

@@ -186,20 +186,6 @@ td.dummy_table{
     width: 90%;
 }
 
-.invoice_form{
-    display: block;
-    width: 40%;
-    margin-left: 30%;
-    margin-right: 30%;
-    text-align: left;
-}
-
-.invoice_form_details{
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 90%;
-}
-
 section.merchant_dbd {
   display: inline-block;
   width: 33%;
