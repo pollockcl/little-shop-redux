@@ -18,19 +18,18 @@
 
         <% end %>
       </select>
-      
+
       <h4 class="item_form_details">Title</h4>
       <input class="item_form_details" type="text" name="new_title" value="<%= item.title %>"/>
 
       <h4 class="item_form_details">Description</h4>
-      <input class="item_form_details" type="text" name="new_description" value="<%= item.description %>"/>
+      <textarea class="item_form_details" rows="15" type="text" name="new_description"><%= item.description %></textarea>
 
       <h4 class="item_form_details">Price</h4>
       <input class="item_form_details" type="number" step="any" name="new_price" value="<%= item.price %>"/>
 
       <h4 class="item_form_details">Image URL</h4>
-      <input class="item_form_details" type="text" name="new_image_url" value="<%= item.image_url %>"/>
-
+      <input class="item_form_details" type="url" name="new_image_url" value="<%= item.image_url %>"/>
       <br><br>
 
       <left>
