@@ -2,40 +2,44 @@
   <head></head>
   <body>
     <h1>Invoices</h1>
-    <table>
-      <tr>
-        <th>id</th>
-        <th>customer_id</th>
-        <th>merchant_id</th>
-        <th>status</th>
-        <th>created</th>
-        <th>updated</th>
-        <th>action</th>
-        <th></th>
-      </tr>
+    <form class="item_form" action="/invoices/<%= invoice.id %>/edit" method="POST">
+      <input type="hidden" name="_method" value="PATCH"/>
 
-      <tr>
-        <form action="/invoices/<%= invoice.id %>/edit" method="POST">
-        <input type="hidden" name="_method" value="PATCH" />
-        <td>
-          <%= invoice.id %>
-        </td>
-        <td>
-            <input type="text" name="new_customer_id" value="<%= invoice.customer_id %>"/>
-        </td>
-        <td>
-            <input type="text" name="new_merchant_id" value="<%= invoice.merchant_id %>"/>
-        </td>
-        <td>
-            <input type="text" name="new_status" value="<%= invoice.status %>"/>
-        </td>
-        <td> <%= invoice.created_at %> </td>
-        <td> <%= invoice.updated_at %> </td>
-        <td>
-          <input class="button-small" type="submit" value="Submit"/>
-        </td>
-        </form>
-      </tr>
-    </table>
+      <h4 class="item_form_details">Merchant</h4>
+      <select class="item_form_details" disabled name="new_merch_id">
+        <option selected hidden value="<%= invoice.merchant.id %>"><%= invoice.merchant.name %></option>
+
+          <option value="<%= merchant.id %>">
+            <%= merchant.name %>
+          </option>
+
+      </select>
+
+      <h4 class="item_form_details">Status</h4>
+      <select class="item_form_details" name="new_status">
+        <option selected hidden value="<%= invoice.status %>"><%= invoice.status %></option>
+
+        <option>
+          Shipped
+        </option>
+
+        <option>
+          Pending
+        </option>
+
+        <option>
+          Returned
+        </option>
+      </select>
+      <br><br>
+
+      <left>
+        <input class="button-small" type="submit" name="cancel" value="Cancel"/>
+      </left>
+
+      <right>
+        <input class="button-small" type="submit" value="Submit"/>
+      </right>
+    </form>
   </body>
 </html>

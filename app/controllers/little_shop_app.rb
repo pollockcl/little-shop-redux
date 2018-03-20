@@ -66,7 +66,7 @@ class LittleShopApp < Sinatra::Base
   get '/invoices/:id/edit' do
     invoice = Invoice.find(params['id'])
 
-    erb :'invoice/edit', locals: { invoice: invoice }
+    erb :'invoice/edit', locals: { invoice: invoice, merchant: invoice.merchant }
   end
 
   get '/invoices/:id/view' do
@@ -75,8 +75,6 @@ class LittleShopApp < Sinatra::Base
 
   patch '/invoices/:id/edit' do
     Invoice.update(params['id'],
-                   customer_id: params['new_customer_id'],
-                   merchant_id: params['new_merchant_id'],
                    status: params['new_status'])
 
     redirect :'/invoices'
