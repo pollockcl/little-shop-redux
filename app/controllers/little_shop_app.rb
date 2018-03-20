@@ -4,27 +4,19 @@ class LittleShopApp < Sinatra::Base
     erb :index
   end
   get '/merchants' do
-    merchants = Merchant.all
-
-    erb :'merchant/index', locals: { merchants: merchants }
+    erb :'merchant/index', locals: { merchants: Merchant.all }
   end
 
   get '/merchants-dashboard' do
-    merchants = Merchant.all
-
-    erb :'merchant/dashboard', locals: { merchants: merchants }
+    erb :'merchant/dashboard', locals: { merchants: Merchant.all }
   end
 
   get '/merchants/:id/edit' do
-    merchant = Merchant.find(params['id'])
-
-    erb :'merchant/edit', locals: { merchant: merchant }
+    erb :'merchant/edit', locals: { merchant: Merchant.find(params['id']) }
   end
 
   get '/merchants/:id/view' do
-    merchant = Merchant.find(params['id'])
-
-    erb :'merchant/show', locals: { merchant: merchant }
+    erb :'merchant/show', locals: { merchant: Merchant.find(params['id']) }
   end
 
   get '/merchants/new' do
@@ -32,9 +24,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   post '/merchants/new' do
-    unless params.include?('cancel')
-      Merchant.create(params)
-    end
+    Merchant.create(params) unless params.include?('cancel')
 
     redirect :'/merchants'
   end
@@ -54,32 +44,23 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/invoices' do
-    invoices = Invoice.all
-    erb :'invoice/index', locals: { invoices: invoices }
+    erb :'invoice/index', locals: { invoices: Invoice.all }
   end
 
   get '/invoices-dashboard' do
-    invoices = Invoice.all
-    erb :'invoice/dashboard', locals: { invoices: invoices }
+    erb :'invoice/dashboard', locals: { invoices: Invoice.all }
   end
 
   get '/invoices/:id/edit' do
-    invoice = Invoice.find(params['id'])
-
-    erb :'invoice/edit', locals: { invoice: invoice }
+    erb :'invoice/edit', locals: { invoice: Invoice.find(params['id']) }
   end
 
   get '/invoices/:id/view' do
-    invoice = Invoice.find(params['id'])
-    traits  = InvoiceItem.invoice_view(params['id'])
-
-    erb :'invoice/show', locals: { invoice: invoice, traits: traits }
+    erb :'invoice/show', locals: { invoice: Invoice.find(params['id']) }
   end
 
   patch '/invoices/:id/edit' do
     Invoice.update(params['id'],
-                   customer_id: params['new_customer_id'],
-                   merchant_id: params['new_merchant_id'],
                    status: params['new_status'])
 
     redirect :'/invoices'
@@ -92,26 +73,20 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/items' do
-    items = Item.all
-    erb :'item/index', locals: { items: items }
+    erb :'item/index', locals: { items: Item.all }
   end
 
   get '/items-dashboard' do
-    items = Item.all
-
-    erb :'item/dashboard', locals: { items: items }
+    erb :'item/dashboard', locals: { items: Item.all }
   end
 
   get '/items/:id/edit' do
-    item = Item.find(params['id'])
-
-    erb :'item/edit', locals: { item: item, merchants: Merchant.order(:name) }
+    erb :'item/edit', locals: { item: Item.find(params['id']),
+                                merchants: Merchant.order(:name) }
   end
 
   get '/items/:id/view' do
-    item = Item.find(params['id'])
-
-    erb :'item/show', locals: { item: item }
+    erb :'item/show', locals: { item: Item.find(params['id']) }
   end
 
   get '/items/create' do
@@ -130,7 +105,8 @@ class LittleShopApp < Sinatra::Base
                   title: params['new_title'],
                   description: params['new_description'],
                   price: params['new_price'],
-                  merchant_id: params['new_merch_id'])
+                  merchant_id: params['new_merch_id'],
+                  image_url: params['new_image_url'])
     end
 
     redirect :'/items'

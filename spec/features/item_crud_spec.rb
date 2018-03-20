@@ -35,7 +35,7 @@ RSpec.describe do
             visit '/items/create'
 
             select 'Groot', from: 'merchant_id'
-            fill_in 'title',       with: 'Shrek Action Figure'
+            fill_in 'title', with: 'Shrek Action Figure'
 
             click_on 'Cancel'
 
