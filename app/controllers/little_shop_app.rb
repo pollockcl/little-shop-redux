@@ -70,10 +70,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/invoices/:id/view' do
-    invoice = Invoice.find(params['id'])
-    traits  = InvoiceItem.invoice_view(params['id'])
-
-    erb :'invoice/show', locals: { invoice: invoice, traits: traits }
+    erb :'invoice/show', locals: { invoice: Invoice.find(params['id']) }
   end
 
   patch '/invoices/:id/edit' do
