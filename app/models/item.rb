@@ -8,15 +8,16 @@ class Item < ActiveRecord::Base
   belongs_to :merchant
 
   def self.count
-    self.all.length
+    all.length
   end
 
   def self.oldest
-    self.all.order(:created_at).last
+    all.order(created_at: :desc).first
   end
 
   def self.newest
-    self.all.order(:created_at).first
+    all.order(:created_at).first
+
   end
 
   def self.average_price

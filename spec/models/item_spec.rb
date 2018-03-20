@@ -33,4 +33,42 @@ RSpec.describe Item do
       end
     end
   end
+
+  describe 'class methods' do
+    describe '.newest' do
+      it 'returns the most recently created item.' do
+        Item.create(title: 'first',
+                    description: 'first',
+                    price: 1,
+                    merchant_id: 1)
+
+        5.times do
+          Item.create(title: 'title',
+                      description: 'des',
+                      price: 99,
+                      merchant_id: 1)
+        end
+
+        expect(Item.newest.title).to eq('first')
+      end
+    end
+
+    describe '.oldest' do
+      it 'returns the least recently created item.' do
+        5.times do
+          Item.create(title: 'title',
+                      description: 'des',
+                      price: 99,
+                      merchant_id: 1)
+        end
+
+        Item.create(title: 'last',
+                    description: 'last',
+                    price: 10,
+                    merchant_id: 10)
+
+        expect(Item.oldest.title).to eq('last')
+      end
+    end
+  end
 end
