@@ -5,15 +5,31 @@ h1 {
   font-size: 40px;
 }
 
+p {
+
+}
+
 box {
-  border: black solid 2px;
+  border: black solid 4px;
   display: inline-block;
-  width: 25%;
   margin: 0px 20px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
   vertical-align: top;
 }
 
-box a {
+box p2 {
   font-size: 40px;
+  padding-top: 100px;
+}
+
+box p3 {
+  font-size: 25px;
+  padding-top: 100px;
+  text-decoration: underline;
+}
+
+box a {
+  font-size: 14px;
+  padding: 125px 0px;
 }
