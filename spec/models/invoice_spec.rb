@@ -9,4 +9,12 @@ RSpec.describe Invoice do
       end
     end
   end
+
+  describe 'self methods' do
+    describe '.pending'
+      it 'finds percent pending'
+        
+      end
+    end
+  end
 end
