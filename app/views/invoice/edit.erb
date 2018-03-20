@@ -9,8 +9,8 @@
       <select class="item_form_details" disabled name="new_merch_id">
         <option selected hidden value="<%= invoice.merchant.id %>"><%= invoice.merchant.name %></option>
 
-          <option value="<%= merchant.id %>">
-            <%= merchant.name %>
+          <option value="<%= invoice.merchant.id %>">
+            <%= invoice.merchant.name %>
           </option>
 
       </select>

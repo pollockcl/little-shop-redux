@@ -1,4 +1,3 @@
-require 'pry'
 class Invoice < ActiveRecord::Base
   validates :merchant_id, presence: true
   has_many :invoice_items
@@ -6,18 +5,15 @@ class Invoice < ActiveRecord::Base
   belongs_to :merchant
 
   def self.pending
-    amount = all.count { |invoice| invoice.status == 'pending' }
-    amount * 100 / all.length
+    where("status = 'pending'").size * 100 / all.size
   end
 
   def self.shipped
-    amount = all.count { |invoice| invoice.status == 'shipped' }
-    amount * 100 / all.length
+    where("status = 'shipped'").size * 100 / all.size
   end
 
   def self.returned
-    amount = all.count { |invoice| invoice.status == 'returned' }
-    amount * 100 / all.length
+    where("status = 'returned'").size * 100 / all.size
   end
 
   def self.highest_price
