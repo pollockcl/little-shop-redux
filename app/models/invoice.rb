@@ -6,8 +6,7 @@ class Invoice < ActiveRecord::Base
   belongs_to :merchant
 
   def self.pending
-    amount = all.count { |invoice| invoice.status == 'pending' }
-    amount * 100 / all.length
+    where("status = 'pending'").size * 100 / all.size
   end
 
   def self.shipped
