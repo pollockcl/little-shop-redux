@@ -29,7 +29,7 @@ CSV.foreach('./data/items.csv', OPTIONS) do |item|
     merchant_id: item[:merchant_id],
     created_at: item[:created_at],
     updated_at: item[:updated_at],
-    image_url: 'https://thumb1.shutterstock.com/display_pic_with_logo/586741/345824189/stock-vector-stamp-or-label-with-the-text-hot-item-buy-today-vector-illustration-345824189.jpg'
+    image_url: './pictures/items_is_items.jpg'
   )
 end
 

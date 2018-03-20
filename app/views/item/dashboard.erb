@@ -1,8 +1,3 @@
-<html>
-  <head>
-    <link rel="stylesheet" href="/item/item.css">
-  </head>
-  <body>
     <h1>Items Dashboard</h1>
     <box>
       <p>Total number of items</p>
@@ -15,7 +10,7 @@
       <p>Average price of items</p>
 
       <br><br><br><br><br><br>
-      
+
       <p2>$ <%= items.average_price %></p2>
     </box>
     <box>
@@ -30,5 +25,3 @@
         <p>Item:</p><a href="/items/<%= items.oldest.id %>/view"><%= items.oldest.title %></a>
       </div>
     </box>
-  </body>
-</html>
