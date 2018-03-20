@@ -29,17 +29,17 @@ RSpec.describe Invoice do
       end
     end
 
-    describe '/invoices/x/edit' do
+    describe '/invoices' do
       describe 'I want to' do
-        it 'should edit invoice' do
+        it 'edit an invoice' do
           visit '/invoices'
 
-          visit 'invoices/1/edit'
+          click_on('Edit')
 
           fill_in 'new_customer_id', with: '1337'
           fill_in 'new_merchant_id', with: '8008'
           fill_in 'new_status', with: 'High Ground'
-          click_button('Submit')
+          click_on('Submit')
 
           expect(current_path).to eq('/invoices')
 

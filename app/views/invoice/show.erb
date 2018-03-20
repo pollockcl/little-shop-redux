@@ -4,6 +4,22 @@
 
     <h1>Invoice: <%= invoice.id %> - <%= invoice.status %></h1>
 
+    <table class="dummy_table">
+      <td class="dummy_table">
+        <form action="/invoices/<%= invoice.id %>/edit">
+          <input class="edit_button" type="submit" value="Edit"/>
+        </form>
+      </td>
+
+      <td class="dummy_table">
+        <form action="/invoices/<%= invoice.id %>/delete" method="POST">
+          <input type="hidden" name="_method" value="DELETE"/>
+          <input class="delete_button" type="submit" value="Delete"/>
+        </form>
+      </td>
+    </table>
+
+    <a href="/merchants/<%= invoice.merchant.id %>/view"><h3><%= invoice.merchant.name %>'s Shop</h3></a>
     <table>
       <tr>
         <th>Item ID</th>
