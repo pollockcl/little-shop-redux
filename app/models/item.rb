@@ -7,10 +7,6 @@ class Item < ActiveRecord::Base
   has_many :invoices, through: :invoice_items
   belongs_to :merchant
 
-  def self.count
-    all.length
-  end
-
   def self.oldest
     all.order(created_at: :desc).first
   end

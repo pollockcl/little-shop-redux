@@ -1,4 +1,3 @@
-require 'pry'
 class Invoice < ActiveRecord::Base
   validates :merchant_id, presence: true
   has_many :invoice_items
