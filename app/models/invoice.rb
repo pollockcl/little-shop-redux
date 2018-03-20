@@ -10,13 +10,11 @@ class Invoice < ActiveRecord::Base
   end
 
   def self.shipped
-    amount = all.count { |invoice| invoice.status == 'shipped' }
-    amount * 100 / all.length
+    where("status = 'shipped'").size * 100 / all.size
   end
 
   def self.returned
-    amount = all.count { |invoice| invoice.status == 'returned' }
-    amount * 100 / all.length
+    where("status = 'returned'").size * 100 / all.size
   end
 
   def self.highest_price
