@@ -17,22 +17,30 @@ class Invoice < ActiveRecord::Base
   end
 
   def self.highest_price
-    high = InvoiceItem.maximum('unit_price')
-    InvoiceItem.where(unit_price: high).to_a
+    InvoiceItem.select('invoice_id, sum(unit_price) as unit_price')
+               .group(:invoice_id)
+               .order('unit_price DESC')
+               .limit(1).first
   end
 
   def self.lowest_price
-    low = InvoiceItem.minimum('unit_price')
-    InvoiceItem.where(unit_price: low).to_a
+    InvoiceItem.select('invoice_id, sum(unit_price) as unit_price')
+               .group(:invoice_id)
+               .order('unit_price ASC')
+               .limit(1).first
   end
 
   def self.highest_quantity
-    high = InvoiceItem.maximum('quantity')
-    InvoiceItem.where(quantity: high).to_a
+    InvoiceItem.select('invoice_id, sum(quantity) as quantity')
+               .group(:invoice_id)
+               .order('quantity DESC')
+               .limit(1).first
   end
 
   def self.lowest_quantity
-    low = InvoiceItem.minimum('quantity')
-    InvoiceItem.where(quantity: low).to_a
+    InvoiceItem.select('invoice_id, sum(quantity) as quantity')
+               .group(:invoice_id)
+               .order('quantity ASC')
+               .limit(1).first
   end
 end
