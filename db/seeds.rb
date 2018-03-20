@@ -9,7 +9,10 @@ OPTIONS = { headers: true, header_converters: :symbol }
 # Populate Merchants table
 
 CSV.foreach('./data/merchants.csv', OPTIONS) do |merchant|
-  Merchant.create(merchant.to_h)
+  Merchant.create(id: merchant[:id],
+                  name: merchant[:name],
+                  created_at: merchant[:created_at],
+                  updated_at: merchant[:updated_at]).update_column(:id, merchant[:id])
 end
 
 # Populate Invoices table
@@ -38,3 +41,13 @@ end
 CSV.foreach('./data/invoice_items.csv', OPTIONS) do |invoice_item|
   InvoiceItem.create(invoice_item.to_h)
 end
+
+# Correct primary key incrementation
+
+ActiveRecord::Base.connection.reset_pk_sequence!(:merchants)
+ActiveRecord::Base.connection.reset_pk_sequence!(:items)
+ActiveRecord::Base.connection.reset_pk_sequence!(:invoice_items)
+ActiveRecord::Base.connection.reset_pk_sequence!(:invoices)
+
+
+

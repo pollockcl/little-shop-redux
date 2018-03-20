@@ -1,8 +1,10 @@
-
+require 'simplecov'
 require 'bundler'
+SimpleCov.start
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec'
 require 'capybara/dsl'
+
 
 ENV["RACK_ENV"] ||= "test"
 Bundler.require(:default, :test)
