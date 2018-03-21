@@ -32,7 +32,7 @@ CSV.foreach('./data/items.csv', OPTIONS) do |item|
     merchant_id: item[:merchant_id],
     created_at: item[:created_at],
     updated_at: item[:updated_at],
-    image_url: './pictures/items_is_items.jpg'
+    image_url: '/pictures/items_is_items.jpg'
   )
 end
 
@@ -48,6 +48,3 @@ ActiveRecord::Base.connection.reset_pk_sequence!(:merchants)
 ActiveRecord::Base.connection.reset_pk_sequence!(:items)
 ActiveRecord::Base.connection.reset_pk_sequence!(:invoice_items)
 ActiveRecord::Base.connection.reset_pk_sequence!(:invoices)
-
-
-
