@@ -43,19 +43,6 @@ RSpec.describe Merchant do
   end
 
   describe 'merchant methods' do
-    describe '.item_count' do
-      it 'has items counted' do
-        merchant = Merchant.create(name: 'Bilbo')
-        Item.create(title: 'Ring', description: 'shiny', price: 110, merchant_id: 1)
-        merchant1 = Merchant.create(name: 'Gandalf')
-        Item.create(title: 'Bread', description: '2nd breakfast', price: 20, merchant_id: 2)
-        Item.create(title: 'Staff', description: 'hard', price: 99, merchant_id: 2)
-
-        expect(merchant.item_count).to eq(1)
-        expect(merchant1.item_count).to eq(2)
-      end
-    end
-
     describe '.avg_price' do
       it 'has averages items' do
         merchant = Merchant.create(name: 'Bilbo')
