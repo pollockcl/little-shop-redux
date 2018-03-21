@@ -8,13 +8,14 @@ RSpec.describe do
                   price: 6,
                   merchant_id: 1,
                   image_url: 'https://i.redd.it/x2rxq3qzujm01.jpg')
+      
     end
 
-    describe 'dashboard' do
-      it 'can visit dashboard' do
-        visit '/items-dashboard'
+    describe 'invoice dashboard' do
+      it 'can see some stats' do
+        visit '/invoices-dashboard'
 
-        expect(current_path).to eq('/items-dashboard')
+        expect(current_path).to eq('/invoices-dashboard')
         expect(page).to have_content('Burrito del Greg')
       end
     end

@@ -10,11 +10,11 @@ RSpec.describe do
                   image_url: 'https://i.redd.it/x2rxq3qzujm01.jpg')
     end
 
-    describe 'dashboard' do
-      it 'can visit dashboard' do
-        visit '/invoices-dashboard'
+    describe 'items dashboard' do
+      it 'can see some stats' do
+        visit '/items-dashboard'
 
-        expect(current_path).to eq('/invoices-dashboard')
+        expect(current_path).to eq('/items-dashboard')
       end
     end
   end

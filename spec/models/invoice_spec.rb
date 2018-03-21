@@ -82,6 +82,7 @@ RSpec.describe Invoice do
         expect(Invoice.lowest_price.invoice_id).to eq(2)
       end
     end
+
     describe '.highest_quantity' do
       it 'has a highest quantity' do
         InvoiceItem.create(item_id: 1,
@@ -95,6 +96,7 @@ RSpec.describe Invoice do
         expect(Invoice.highest_quantity.invoice_id).to eq(2)
       end
     end
+
     describe '.lowest_quantity' do
       it 'has a lowest quantity' do
         InvoiceItem.create(item_id: 1,
