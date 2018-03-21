@@ -11,7 +11,7 @@
           <a href="/merchants/<%= highest.id %>/view"><%= highest.name %></a>
         </td>
         <td>
-          <% highest = merchants.highest_price %>
+          <% merchants.highest_price.each do |highest| %>
           <a href="/merchants/<%= highest.id %>/view"><%= highest.name %></a>
           <% end %>
         </td>
