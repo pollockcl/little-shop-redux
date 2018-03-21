@@ -11,8 +11,7 @@ class Merchant < ActiveRecord::Base
 
   def self.highest_price
     high = Item.maximum('price')
-    highest = (Item.where(price: high).to_a).map(&:merchant_id)
-    highest.map { |m_id| Merchant.find(m_id) }
+    all.find(Item.where(price: high).to_a.first.merchant_id)
   end
 
   def avg_price

@@ -25,7 +25,7 @@ RSpec.describe Merchant do
         Item.create(title: 'Bread', description: '2nd breakfast', price: 20, merchant_id: 2)
         Item.create(title: 'Staff', description: 'hard', price: 99, merchant_id: 2)
 
-        expect(Merchant.highest_price.first).to eq(merchant)
+        expect(Merchant.highest_price).to eq(merchant)
       end
     end
 
