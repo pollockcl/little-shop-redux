@@ -89,11 +89,11 @@ class LittleShopApp < Sinatra::Base
     erb :'item/show', locals: { item: Item.find(params['id']) }
   end
 
-  get '/items/create' do
+  get '/items/new' do
     erb :'item/new', locals: { merchants: Merchant.order(:name) }
   end
 
-  post '/items/create' do
+  post '/items/new' do
     Item.create(params) unless params.include?('cancel')
 
     redirect :'/items'

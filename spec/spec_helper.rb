@@ -1,3 +1,5 @@
+ENV["RACK_ENV"] ||= "test"
+
 require 'simplecov'
 require 'bundler'
 SimpleCov.start
@@ -5,13 +7,12 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec'
 require 'capybara/dsl'
 
-
-ENV["RACK_ENV"] ||= "test"
 Bundler.require(:default, :test)
+
+Capybara.app = LittleShopApp
 
 DatabaseCleaner.strategy = :truncation
 
-Capybara.app = LittleShopApp
 
 RSpec.configure do |c|
   c.include Capybara::DSL

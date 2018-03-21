@@ -15,13 +15,8 @@ class Merchant < ActiveRecord::Base
     highest.map { |m_id| Merchant.find(m_id) }
   end
 
-  def item_count
-    Item.where(merchant_id: id).to_a.count
-  end
-
   def avg_price
-    items = Item.where(merchant_id: id).to_a
-    items.map(&:price).sum / items.count
+    items.map(&:price).sum / items.size
   end
 
   def total_cost

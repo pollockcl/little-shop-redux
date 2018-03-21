@@ -14,7 +14,7 @@ RSpec.describe do
       describe 'I want to' do
         describe 'create an item' do
           it 'can create item' do
-            visit '/items/create'
+            visit '/items/new'
 
             select 'Groot', from: 'merchant_id'
             fill_in 'title',       with: 'Shrek Action Figure'
@@ -32,7 +32,7 @@ RSpec.describe do
 
         describe 'cancel a item creation' do
           it 'can cancel out of creating an item' do
-            visit '/items/create'
+            visit '/items/new'
 
             select 'Groot', from: 'merchant_id'
             fill_in 'title', with: 'Shrek Action Figure'

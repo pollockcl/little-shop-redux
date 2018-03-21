@@ -13,7 +13,6 @@ class Item < ActiveRecord::Base
 
   def self.newest
     all.order(:created_at).first
-
   end
 
   def self.average_price
