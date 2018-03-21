@@ -78,5 +78,24 @@ RSpec.describe Item do
         expect(Item.oldest.title).to eq('last')
       end
     end
+
+    describe '.average_price' do
+      it 'returns the average price of items' do
+        5.times do
+          Item.create(title: 'title',
+                      description: 'des',
+                      price: 50,
+                      merchant_id: 1)
+        end
+
+        Item.create(title: 'last',
+                    description: 'last',
+                    price: 350,
+                    merchant_id: 10)
+
+        expect(Item.average_price).to eq(100.00)
+      end
+    end
+
   end
 end
