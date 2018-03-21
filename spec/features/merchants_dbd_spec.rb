@@ -16,6 +16,16 @@ RSpec.describe do
 
         expect(current_path).to eq('/merchants-dashboard')
         expect(page).to have_content('Groot')
+        expect(page).to have_content('Groot', count: 3)
+      end
+    end
+
+    describe 'can click on Groot' do
+      it 'takes you to groot merchant page' do
+        visit '/merchants-dashboard'
+        first(:link, 'Groot').click
+
+        expect(current_path).to eq('/merchants/1/view')
       end
     end
   end
