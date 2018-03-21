@@ -45,10 +45,26 @@ RSpec.describe do
           end
         end
 
-        describe 'view an item' do
+        describe 'view an item by clicking name' do
           it 'can view item' do
             visit '/items'
 
+            click_link ('Burrito del Greg')
+
+
+            expect(current_path).to eq('/items/1/view')
+            expect(page).to have_content(6)
+            expect(page).to have_content('Burrito del Greg')
+            expect(page).to have_selector(:link_or_button, 'Edit')
+            expect(page).to have_selector(:link_or_button, 'Delete')
+          end
+        end
+
+        describe 'view an item by clicking image' do
+          it 'can view item' do
+            visit '/items'
+
+            find("img[alt='this is an item']").click
             click_link ('Burrito del Greg')
 
 
