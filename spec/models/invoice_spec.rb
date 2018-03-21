@@ -54,4 +54,59 @@ RSpec.describe Invoice do
       end
     end
   end
+
+  describe 'self methods' do
+    describe '.highest_price' do
+      it 'has a highest price' do
+        InvoiceItem.create(item_id: 1,
+                          invoice_id: 1,
+                          unit_price: 4,
+                          quantity: 2)
+        InvoiceItem.create(item_id: 2,
+                          invoice_id: 2,
+                          unit_price: 2,
+                          quantity: 10)
+        expect(Invoice.highest_price.invoice_id).to eq(1)
+      end
+    end
+    describe '.lowest_price' do
+      it 'has a lowest price' do
+        InvoiceItem.create(item_id: 1,
+                          invoice_id: 1,
+                          unit_price: 4,
+                          quantity: 2)
+        InvoiceItem.create(item_id: 2,
+                          invoice_id: 2,
+                          unit_price: 2,
+                          quantity: 10)
+        expect(Invoice.lowest_price.invoice_id).to eq(2)
+      end
+    end
+    describe '.highest_quantity' do
+      it 'has a highest quantity' do
+        InvoiceItem.create(item_id: 1,
+                          invoice_id: 1,
+                          unit_price: 4,
+                          quantity: 2)
+        InvoiceItem.create(item_id: 2,
+                          invoice_id: 2,
+                          unit_price: 2,
+                          quantity: 10)
+        expect(Invoice.highest_quantity.invoice_id).to eq(2)
+      end
+    end
+    describe '.lowest_quantity' do
+      it 'has a lowest quantity' do
+        InvoiceItem.create(item_id: 1,
+                          invoice_id: 1,
+                          unit_price: 4,
+                          quantity: 2)
+        InvoiceItem.create(item_id: 2,
+                          invoice_id: 2,
+                          unit_price: 2,
+                          quantity: 10)
+        expect(Invoice.lowest_quantity.invoice_id).to eq(1)
+      end
+    end
+  end
 end
